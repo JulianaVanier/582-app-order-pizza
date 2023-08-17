@@ -13,7 +13,6 @@ Welcome to the Pizza Buying App! This is an application developed in Vue.js, Nod
 - View the total price based on your choices
 
 ## Overall project structure
-coming soon
 ## Screenshot
 coming soon
 #### Mobile First:
@@ -21,6 +20,16 @@ coming soon
 
 #### Desktop:
 coming soon
+
+## JSON
+
+#### Pizza:
+![Project Image](/docs//img/json-pizza.png)
+
+#### Topping:
+![Project Image](/docs//img/json-topping.png)
+#### Topping:
+![Project Image](/docs//img/json-order.png)
 
 ## Technologies Used
 

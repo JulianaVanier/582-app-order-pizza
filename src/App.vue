@@ -1,10 +1,22 @@
 <template>
   <nav>
+    <HeaderApp></HeaderApp>
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link>
   </nav>
   <router-view />
 </template>
+
+<script>
+import HeaderApp from "./components/HeaderApp.vue";
+
+export default {
+  name: "App",
+  components: {
+    HeaderApp,
+  },
+};
+</script>
 
 <style lang="scss">
 #app {

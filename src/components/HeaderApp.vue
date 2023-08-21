@@ -1,10 +1,10 @@
 <template>
-  <div>
-    <nav></nav>
-  </div>
+  <nav>
+    <router-link to="/">Home</router-link>
+  </nav>
   <section class="banner-top">
     <div class="box-banner-top">
-      <img src="/public/img/banner-top.jpg" alt="banner top pizza" />
+      <img src="/img/banner-top.jpg" alt="banner top pizza" />
     </div>
   </section>
 </template>

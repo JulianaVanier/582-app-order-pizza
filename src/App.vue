@@ -1,10 +1,5 @@
 <template>
-  <nav>
-    <HeaderApp></HeaderApp>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view />
+  <HeaderApp></HeaderApp>
 </template>
 
 <script>
@@ -27,6 +22,16 @@ export default {
   color: #2c3e50;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.banner-top {
+  img {
+    width: 60%;
+  }
+}
 nav {
   padding: 30px;
 

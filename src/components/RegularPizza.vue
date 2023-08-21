@@ -13,6 +13,12 @@
           <p>X-Large: {{ pizzaItem.size.xlarge }}</p> -->
           <div class="btn">Add to cart</div>
         </div>
+        <div v-else class="box-menu-pizza">
+          <h2>{{ pizzaItem.title }}</h2>
+          <p><img :src="pizzaItem.image" alt="Pizza image" /></p>
+          <p>{{ pizzaItem.description }}</p>
+          <div class="btn">Add to cart</div>
+        </div>
       </div>
     </div>
   </section>

@@ -1,14 +1,17 @@
 <template>
   <HeaderApp></HeaderApp>
+  <RegularPizza></RegularPizza>
 </template>
 
 <script>
 import HeaderApp from "./components/HeaderApp.vue";
+import RegularPizza from "./components/RegularPizza.vue";
 
 export default {
   name: "App",
   components: {
     HeaderApp,
+    RegularPizza,
   },
 };
 </script>

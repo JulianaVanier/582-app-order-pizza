@@ -31,10 +31,77 @@ export default {
   box-sizing: border-box;
 }
 .banner-top {
-  img {
-    width: 60%;
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .box-banner-top {
+    width: 80%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img {
+      width: 100%;
+    }
   }
 }
+
+.menu-pizza {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 0;
+  .container {
+    width: 80%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    .box-menu-pizza {
+      width: 300px;
+      height: 400px;
+      border: 1px solid #ccc;
+      margin: 10px;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      h2 {
+        font-size: 20px;
+        font-weight: bold;
+      }
+      img {
+        width: 100%;
+        height: 160px;
+        object-fit: cover;
+      }
+      p {
+        margin: 5px 0;
+      }
+      .btn {
+        // width: 100%;
+        // height: 40px;
+        padding: 10px 40px;
+        background-color: #ff2401;
+        color: #fff;
+        font-weight: bold;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        border-radius: 8px;
+        margin-top: 15px;
+      }
+    }
+  }
+}
+
 nav {
   padding: 30px;
 

@@ -2,7 +2,7 @@
   <section class="menu-pizza">
     <div class="container">
       <div v-for="pizzaItem in pizzaList" :key="pizzaItem.id">
-        <div v-if="pizzaItem.custom === false" class="box-menu-pizza">
+        <div class="box-menu-pizza">
           <h2>{{ pizzaItem.title }}</h2>
           <p><img :src="pizzaItem.image" alt="Pizza image" /></p>
           <p>{{ pizzaItem.description }}</p>
@@ -11,13 +11,8 @@
           <p>Medium: {{ pizzaItem.size.medium }}</p>
           <p>Large: {{ pizzaItem.size.large }}</p>
           <p>X-Large: {{ pizzaItem.size.xlarge }}</p> -->
-          <div class="btn">Add to cart</div>
-        </div>
-        <div v-else class="box-menu-pizza">
-          <h2>{{ pizzaItem.title }}</h2>
-          <p><img :src="pizzaItem.image" alt="Pizza image" /></p>
-          <p>{{ pizzaItem.description }}</p>
-          <div class="btn">Add to cart</div>
+          <div class="btn" v-if="pizzaItem.custom === false">Add to cart</div>
+          <div v-else class="btn">Customize</div>
         </div>
       </div>
     </div>

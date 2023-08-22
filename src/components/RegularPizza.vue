@@ -6,6 +6,28 @@
           <h2>{{ pizzaItem.title }}</h2>
           <p><img :src="pizzaItem.image" alt="Pizza image" /></p>
           <p>{{ pizzaItem.description }}</p>
+          <div class="select-size">
+            <h3>Add Item</h3>
+            <div class="select-size-box">
+              <div class="size">
+                <img src="/img/pizza-icon.png" alt="Icon pizza" />
+                <p>Small</p>
+              </div>
+              <div class="size">
+                <img src="/img/pizza-icon.png" alt="Icon pizza" />
+                <p>Medium</p>
+              </div>
+              <div class="size">
+                <img src="/img/pizza-icon.png" alt="Icon pizza" />
+                <p>Large</p>
+              </div>
+              <div class="size">
+                <img src="/img/pizza-icon.png" alt="Icon pizza" />
+                <p>X-Large</p>
+              </div>
+            </div>
+            <div class="btn">Add to cart</div>
+          </div>
           <!-- <p>Size:</p>
           <p>Small: {{ pizzaItem.size.small }}</p>
           <p>Medium: {{ pizzaItem.size.medium }}</p>
@@ -17,7 +39,10 @@
       </div>
     </div>
   </section>
-  <section class="select-size">
+  <div
+    class="select-size"
+    :class="['box', selectSize ? 'disappears' : 'appears']"
+  >
     <h3>Add Item</h3>
     <div class="select-size-box">
       <div class="size">
@@ -38,12 +63,12 @@
       </div>
     </div>
     <div class="btn">Add to cart</div>
-  </section>
+  </div>
 </template>
 
 <script>
 import { usePizzaStore } from "@/store/PizzaStore";
-// import { storeToRefs } from "pinia";
+// import { ref } from "vue";
 
 export default {
   name: "RegularPizza",

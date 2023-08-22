@@ -1,7 +1,7 @@
 <template>
-  <nav>
+  <!-- <nav>
     <router-link to="/">Home</router-link>
-  </nav>
+  </nav> -->
   <section class="banner-top">
     <div class="box-banner-top">
       <img src="/img/banner-top.jpg" alt="banner top pizza" />

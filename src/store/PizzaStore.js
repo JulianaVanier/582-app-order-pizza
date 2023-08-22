@@ -3,6 +3,7 @@ import { defineStore } from "pinia";
 export const usePizzaStore = defineStore("pizzaStore", {
   // state = data
   state: () => ({
+    selectSize: false,
     pizza: [],
   }),
   // getters = computed
@@ -24,9 +25,11 @@ export const usePizzaStore = defineStore("pizzaStore", {
         console.log("Error fetching pizza:", error);
       }
     },
-    // async selectSize(size) {
-    //   console.log("Size selected:", size);
+    // selectSize() {
+    //   // console.log("Size selected:", size);
 
+    //   this.selectSize = true;
+    //   console.log("Size selected:", this.selectSize);
     // },
   },
 });

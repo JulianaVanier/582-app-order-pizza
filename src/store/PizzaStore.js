@@ -24,5 +24,9 @@ export const usePizzaStore = defineStore("pizzaStore", {
         console.log("Error fetching pizza:", error);
       }
     },
+    // async selectSize(size) {
+    //   console.log("Size selected:", size);
+
+    // },
   },
 });

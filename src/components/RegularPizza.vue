@@ -17,6 +17,28 @@
       </div>
     </div>
   </section>
+  <section class="select-size">
+    <h3>Add Item</h3>
+    <div class="select-size-box">
+      <div class="size">
+        <img src="/img/pizza-icon.png" alt="Icon pizza" />
+        <p>Small</p>
+      </div>
+      <div class="size">
+        <img src="/img/pizza-icon.png" alt="Icon pizza" />
+        <p>Medium</p>
+      </div>
+      <div class="size">
+        <img src="/img/pizza-icon.png" alt="Icon pizza" />
+        <p>Large</p>
+      </div>
+      <div class="size">
+        <img src="/img/pizza-icon.png" alt="Icon pizza" />
+        <p>X-Large</p>
+      </div>
+    </div>
+    <div class="btn">Add to cart</div>
+  </section>
 </template>
 
 <script>
@@ -29,7 +51,6 @@ export default {
     const pizzaStore = usePizzaStore();
 
     pizzaStore.fetchPizza();
-    console.log("olha aqui", pizzaStore.pizza);
     return { pizzaList: pizzaStore.pizza };
   },
 };

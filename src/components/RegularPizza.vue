@@ -1,16 +1,11 @@
 <template>
   <section class="menu-pizza">
     <div class="container">
-      <div v-for="pizzaItem in pizzaList" :key="pizzaItem.id">
+      <div v-for="pizzaItem in pizzaStore.getPizza" :key="pizzaItem.id">
         <div class="box-menu-pizza">
           <h2>{{ pizzaItem.title }}</h2>
           <p><img :src="pizzaItem.image" alt="Pizza image" /></p>
           <p>{{ pizzaItem.description }}</p>
-          <!-- <p>Size:</p>
-          <p>Small: {{ pizzaItem.size.small }}</p>
-          <p>Medium: {{ pizzaItem.size.medium }}</p>
-          <p>Large: {{ pizzaItem.size.large }}</p>
-          <p>X-Large: {{ pizzaItem.size.xlarge }}</p> -->
           <div
             class="btn"
             v-if="pizzaItem.custom === false"
@@ -68,8 +63,19 @@ export default {
   setup() {
     const pizzaStore = usePizzaStore();
 
-    pizzaStore.fetchPizza();
-    return { pizzaList: pizzaStore.pizza };
+    // pizzaStore.fetchPizza();
+    return { pizzaStore };
+  },
+  created() {
+    fetch("http://localhost:3000/")
+      .then((response) => response.json())
+      .then((json) => {
+        // console.log(json);
+        for (let pizza of json) {
+          this.pizzaStore.setPizza(pizza);
+          // console.log(pizza);
+        }
+      });
   },
   methods: {
     selectSizeRun(id) {

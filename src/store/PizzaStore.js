@@ -16,7 +16,7 @@ export const usePizzaStore = defineStore("pizzaStore", {
   actions: {
     async fetchPizza() {
       try {
-        const response = await fetch("http://localhost:3000/pizza");
+        const response = await fetch("http://localhost:3000/");
 
         const data = await response.json();
         this.pizza = data;

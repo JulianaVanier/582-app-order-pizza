@@ -20,7 +20,7 @@
     <!-- Condition to show options when pizza is in the cart -->
     <div v-else>
       <div class="box-features-cart">
-        <div class="btn">Remove</div>
+        <div class="btn" @click="removePizzaFromCart(pizza)">Remove</div>
         <p>Quantity: {{ pizza.quantity }}</p>
         <p>Item total: {{ pizza.sizeSelected }}</p>
       </div>
@@ -98,6 +98,9 @@ export default {
       this.pizzaStore.addPizzaToCart(pizza, this.selectedSizePrice);
       this.selectSize = false;
       this.$router.push("/cart/" + pizza._id);
+    },
+    removePizzaFromCart(pizza) {
+      this.pizzaStore.removePizzaFromCart(pizza);
     },
   },
   // components: {

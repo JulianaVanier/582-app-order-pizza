@@ -29,5 +29,8 @@ export const usePizzaStore = defineStore("pizzaStore", {
       this.pizzasInCart.push(pizzaToCart);
       console.log("objeto to cart", this.pizzasInCart);
     },
+    removePizzaFromCart(pizza) {
+      this.pizzasInCart.splice(pizza, 1);
+    },
   },
 });

@@ -1,4 +1,5 @@
 <template>
+  <div class="cart-qt">{{ pizzaStore.count }}</div>
   <section class="menu-pizza">
     <div class="container">
       <PizzaItem
@@ -31,6 +32,7 @@ export default {
     return { pizzaStore };
   },
   created() {
+    this.pizzaStore.pizzas = [];
     fetch("http://localhost:3000/pizza")
       .then((response) => response.json())
       .then((json) => {

@@ -35,14 +35,14 @@
 //         };
 
 //         const wrapper = shallowMount(PizzaItem, {
-//             props: { pizza, selectSize: false } 
-            
+//             props: { pizza, selectSize: false }
+
 //         });
-    
+
 //         expect(wrapper.vm.selectSize).toBe(false);
-    
+
 //         await wrapper.vm.selectSizeRun('1');
-    
+
 //         expect(wrapper.vm.selectSize).toBe(true);
 //       });
 // });

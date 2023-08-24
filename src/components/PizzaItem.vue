@@ -16,35 +16,34 @@
       <p @click="selectSize = false">X</p>
       <h3>Add Item</h3>
       <div class="select-size-box">
-        <div class="size">
+        <div class="size" @click="sizeSelected(pizza.size.small)">
           <img src="/img/pizza-icon.png" alt="Icon pizza" />
           <p>Small</p>
-          <p>{{ pizza.size.small }}</p>
         </div>
-        <div class="size">
+        <div class="size" @click="sizeSelected(pizza.size.medium)">
           <img src="/img/pizza-icon.png" alt="Icon pizza" />
           <p>Medium</p>
-          <p>{{ pizza.size.medium }}</p>
         </div>
-        <div class="size">
+        <div class="size" @click="sizeSelected(pizza.size.large)">
           <img src="/img/pizza-icon.png" alt="Icon pizza" />
           <p>Large</p>
-          <p>{{ pizza.size.large }}</p>
         </div>
-        <div class="size">
+        <div class="size" @click="sizeSelected(pizza.size.xlarge)">
           <img src="/img/pizza-icon.png" alt="Icon pizza" />
           <p>X-Large</p>
-          <p>{{ pizza.size.xlarge }}</p>
         </div>
       </div>
-      <div class="btn">Add to cart</div>
+      <p>{{ selectedSizePrice }}</p>
+      <router-link :to="'/checkout/' + pizza._id">
+        <div class="btn">Add to cart</div>
+      </router-link>
     </div>
   </div>
 </template>
 
 <script>
 import { usePizzaStore } from "@/store/PizzaStore";
-// import { ref } from "vue";
+// import CheckoutView from "@/views/CheckoutView.vue";
 
 export default {
   name: "PizzaItem",
@@ -57,6 +56,7 @@ export default {
   data() {
     return {
       selectSize: false,
+      selectedSizePrice: null,
     };
   },
   setup() {
@@ -70,7 +70,13 @@ export default {
       console.log(id);
       this.selectSize = !this.selectSize;
     },
+    sizeSelected(size) {
+      this.selectedSizePrice = size;
+    },
   },
+  // components: {
+  //   CheckoutView,
+  // },
 };
 </script>
 

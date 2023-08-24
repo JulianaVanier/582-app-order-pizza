@@ -22,6 +22,38 @@ export default {
   color: #2c3e50;
 }
 
+.cart-btn {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #eeeded;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  .cart {
+    position: relative;
+    img {
+      width: 30px;
+      height: 30px;
+    }
+    .qt-cart {
+      position: absolute;
+      top: -5px;
+      right: -7px;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background-color: #ff2401;
+      color: #fff;
+      font-weight: bold;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -141,8 +173,68 @@ export default {
     margin: auto;
   }
 }
+// Style for cart top
+.top {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+  .back-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #eeeded;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    img {
+      width: 30px;
+      height: 30px;
+    }
+  }
+  .title {
+    h1 {
+      font-size: 30px;
+      font-weight: bold;
+    }
+  }
+  // .cart-btn {
+  //   width: 50px;
+  //   height: 50px;
+  //   border-radius: 50%;
+  //   background-color: #eeeded;
+  //   display: flex;
+  //   justify-content: center;
+  //   align-items: center;
+  //   cursor: pointer;
+  //   .cart {
+  //     position: relative;
+  //     img {
+  //       width: 30px;
+  //       height: 30px;
+  //     }
+  //     .qt-cart {
+  //       position: absolute;
+  //       top: -5px;
+  //       right: -7px;
+  //       width: 20px;
+  //       height: 20px;
+  //       border-radius: 50%;
+  //       background-color: #ff2401;
+  //       color: #fff;
+  //       font-weight: bold;
+  //       display: flex;
+  //       justify-content: center;
+  //       align-items: center;
+  //     }
+  //   }
+  // }
+}
 
-// Style for cart
+// Style for cart component
 .review-order {
   width: 100%;
   height: 100%;

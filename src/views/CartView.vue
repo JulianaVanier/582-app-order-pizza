@@ -1,18 +1,22 @@
 <template>
   <section class="top">
-    <h1>Carrinho</h1>
-    <router-link to="/">
-      <img src="/img/back-icon.png" alt="Back icon" />
-    </router-link>
-    <!-- <p>{{ $route.params }}</p> -->
-    <h1>Cart</h1>
-    <div class="cart">
-      <img src="/img/cart-icon.png" alt="Cart icon" />
-      <p>{{ pizzaCart.count }}</p>
-      <!-- <p>{{ itemsCart }}</p> -->
-      <CartComponent></CartComponent>
+    <div class="back-btn">
+      <router-link to="/">
+        <img src="/img/back-icon.png" alt="Back icon" />
+      </router-link>
+    </div>
+    <div class="title">
+      <h1>Cart</h1>
+    </div>
+    <div class="cart-btn">
+      <div class="cart">
+        <img src="/img/cart-icon.png" alt="Cart icon" />
+        <!-- <p>{{ itemsCart }}</p> -->
+        <div class="qt-cart">{{ pizzaCart.count }}</div>
+      </div>
     </div>
   </section>
+  <CartComponent></CartComponent>
 </template>
 
 <script>
@@ -33,25 +37,6 @@ export default {
     const pizzaCart = usePizzaStore();
     return { pizzaCart };
   },
-  // computed: {
-  //   counterCart() {
-  //     if (this.pizzaCart.getPizzasInCart.length > 0) {
-  //       return this.pizzaCart.getPizzasInCart.length;
-  //     } else {
-  //       return 0;
-  //     }
-  //   },
-  //   showItemsCart() {
-  //     for (let i = 0; i < this.pizzaCart.getPizzasInCart.length; i++) {
-  //       if (
-  //         this.pizzaCart.getPizzasInCart[i].id === this.pizzaCart.getPizzas.id
-  //       ) {
-  //         this.itemsCart.push(this.pizzaCart.getPizzas);
-  //       }
-  //     }
-  //     return this.itemsCart;
-  //   },
-  // },
 };
 </script>
 

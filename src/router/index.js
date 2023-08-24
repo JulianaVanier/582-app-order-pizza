@@ -1,14 +1,15 @@
 import { createRouter, createWebHistory } from "vue-router";
-import HomeView from "../views/HomeView.vue";
+// import HomeView from "../views/HomeView.vue";
 // import CheckoutView from "../views/CheckoutView.vue";
 import CartView from "../views/CartView.vue";
+import IndexView from "../views/IndexView.vue";
 
 const routes = [
-  {
-    path: "/",
-    name: "home",
-    component: HomeView,
-  },
+  // {
+  //   path: "/",
+  //   name: "home",
+  //   component: HomeView,
+  // },
   {
     path: "/about",
     name: "about",
@@ -24,6 +25,13 @@ const routes = [
   //   component: CheckoutView,
   //   // props: true,
   // },
+
+  {
+    path: "/",
+    name: "index",
+    component: IndexView,
+    // props: true,
+  },
   {
     path: "/cart/:id",
     name: "cart",

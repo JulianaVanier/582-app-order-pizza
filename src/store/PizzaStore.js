@@ -16,7 +16,7 @@ export const usePizzaStore = defineStore("pizzaStore", {
     },
     addPizzaToCart(id) {
       this.pizzasInCart.push(id);
-      console.log("cart", this.pizzasInCart);
+      // console.log("cart", this.pizzasInCart);
     },
   },
 });

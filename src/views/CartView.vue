@@ -1,18 +1,22 @@
 <template>
   <section class="top">
-    <p>Back</p>
-    <p>{{ $route.params }}</p>
+    <router-link to="/">
+      <img src="/img/back-icon.png" alt="Back icon" />
+    </router-link>
+    <!-- <p>{{ $route.params }}</p> -->
     <h1>Cart</h1>
     <div class="cart">
       <img src="/img/cart-icon.png" alt="Cart icon" />
       <p>{{ counterCart }}</p>
       <!-- <p>{{ itemsCart }}</p> -->
+      <CartComponent></CartComponent>
     </div>
   </section>
 </template>
 
 <script>
 import { usePizzaStore } from "@/store/PizzaStore";
+import CartComponent from "@/components/CartComponent.vue";
 
 export default {
   name: "CartView",
@@ -20,6 +24,9 @@ export default {
     return {
       itemsCart: [],
     };
+  },
+  components: {
+    CartComponent,
   },
   setup() {
     const pizzaCart = usePizzaStore();

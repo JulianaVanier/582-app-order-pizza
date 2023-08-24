@@ -4,6 +4,8 @@
     <h2>{{ pizza.title }}</h2>
     <img :src="pizza.image" alt="Pizza image" />
     <p>{{ pizza.description }}</p>
+
+    <!-- Button display pop up to select size of pizza -->
     <div
       class="btn"
       v-if="pizza.custom === false"
@@ -11,7 +13,12 @@
     >
       Add to cart
     </div>
+
+    <!-- Condition to show customize button for Custom Pizza - go to new View -->
     <div v-else class="btn">Customize</div>
+    <!-- -- -->
+
+    <!-- Popup to select size of pizza -->
     <div class="select-size" :class="[selectSize ? 'appears' : 'disappears']">
       <p @click="selectSize = false">X</p>
       <h3>Add Item</h3>
@@ -34,10 +41,10 @@
         </div>
       </div>
 
+      <!-- Display value size selected -->
       <p>{{ selectedSizePrice }}</p>
-      <!-- <router-link :to="'/checkout/' + pizza._id">
-        <div class="btn">Add to cart</div>
-      </router-link> -->
+      <!-- -- -->
+
       <div class="btn" @click="sendingToCart(pizza._id)">Add to cart</div>
     </div>
   </div>
@@ -63,13 +70,11 @@ export default {
   },
   setup() {
     const pizzaStore = usePizzaStore();
-
-    // pizzaStore.fetchPizza();
     return { pizzaStore };
   },
   methods: {
-    selectSizeRun(id) {
-      console.log(id);
+    selectSizeRun() {
+      // console.log(id);
       this.selectSize = !this.selectSize;
       this.selectedSizePrice = null;
     },
@@ -77,14 +82,9 @@ export default {
       this.selectedSizePrice = size;
     },
     sendingToCart(id) {
-      // console.log(id);
       this.pizzaStore.addPizzaToCart(id);
-      // console.log(this.selectSizePrice);
-      // console.log(size);
       this.selectSize = false;
       this.$router.push("/cart/" + id);
-
-      // this.$router.push({ name: "cart", params: { id: id } });
     },
   },
   // components: {

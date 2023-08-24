@@ -34,9 +34,10 @@
         </div>
       </div>
       <p>{{ selectedSizePrice }}</p>
-      <router-link :to="'/checkout/' + pizza._id">
+      <!-- <router-link :to="'/checkout/' + pizza._id">
         <div class="btn">Add to cart</div>
-      </router-link>
+      </router-link> -->
+      <div class="btn" @click="sendingToCart(pizza._id)">Add to cart</div>
     </div>
   </div>
 </template>
@@ -69,9 +70,19 @@ export default {
     selectSizeRun(id) {
       console.log(id);
       this.selectSize = !this.selectSize;
+      this.selectedSizePrice = null;
     },
     sizeSelected(size) {
       this.selectedSizePrice = size;
+    },
+    sendingToCart(id) {
+      // console.log(id);
+      this.pizzaStore.addPizzaToCart(id, this.selectedSizePrice);
+      // console.log(this.selectSizePrice);
+      this.selectSize = false;
+      // this.$router.push("/cart/" + id);
+
+      this.$router.push({ name: "cart", params: { id: id } });
     },
   },
   // components: {

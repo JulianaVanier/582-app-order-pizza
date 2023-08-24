@@ -1,17 +1,21 @@
 <template>
   <HeaderApp></HeaderApp>
   <MenuPizza></MenuPizza>
+  <!-- <router-view></router-view> -->
+  <CartView></CartView>
 </template>
 
 <script>
 import HeaderApp from "./components/HeaderApp.vue";
 import MenuPizza from "./components/MenuPizza.vue";
+import CartView from "./views/CartView.vue";
 
 export default {
   name: "App",
   components: {
     HeaderApp,
     MenuPizza,
+    CartView,
   },
 };
 </script>
@@ -78,9 +82,10 @@ export default {
         font-weight: bold;
       }
       img {
-        width: 100%;
-        height: 160px;
+        width: 200px;
+        max-height: 100%;
         object-fit: cover;
+        margin: 10px 0;
       }
       p {
         margin: 5px 0;

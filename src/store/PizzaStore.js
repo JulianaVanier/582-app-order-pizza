@@ -14,9 +14,20 @@ export const usePizzaStore = defineStore("pizzaStore", {
     addPizza(pizza) {
       this.pizzas.push(pizza);
     },
-    addPizzaToCart(id) {
-      this.pizzasInCart.push(id);
-      // console.log("cart", this.pizzasInCart);
+    addPizzaToCart(pizza, size) {
+      var pizzaToCart = {
+        _id: pizza._id,
+        title: pizza.title,
+        description: pizza.description,
+        sizeSelected: size,
+        image: pizza.image,
+        toppings: pizza.toppings,
+        quantity: 1,
+        // price: pizza.size[size].price,
+      };
+
+      this.pizzasInCart.push(pizzaToCart);
+      console.log("objeto to cart", this.pizzasInCart);
     },
   },
 });

@@ -1,5 +1,6 @@
 <template>
   <section class="top">
+    <h1>Carrinho</h1>
     <router-link to="/">
       <img src="/img/back-icon.png" alt="Back icon" />
     </router-link>

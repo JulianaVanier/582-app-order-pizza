@@ -141,6 +141,9 @@ export default {
     margin: auto;
   }
 }
+
+// Style for cart
+
 nav {
   padding: 30px;
 

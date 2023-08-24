@@ -15,8 +15,16 @@
     </div>
 
     <!-- Condition to show customize button for Custom Pizza - go to new View -->
-    <div v-else class="btn">Customize</div>
-    <!-- -- -->
+    <div v-else-if="pizza.custom === true" class="btn">Customize</div>
+
+    <!-- Condition to show options when pizza is in the cart -->
+    <div v-else>
+      <div class="box-features-cart">
+        <div class="btn">Remove</div>
+        <p>Quantity: {{ pizza.quantity }}</p>
+        <p>Item total: {{ pizza.sizeSelected }}</p>
+      </div>
+    </div>
 
     <!-- Popup to select size of pizza -->
     <div class="select-size" :class="[selectSize ? 'appears' : 'disappears']">
@@ -45,7 +53,7 @@
       <p>{{ selectedSizePrice }}</p>
       <!-- -- -->
 
-      <div class="btn" @click="sendingToCart(pizza._id)">Add to cart</div>
+      <div class="btn" @click="sendingToCart(pizza)">Add to cart</div>
     </div>
   </div>
 </template>
@@ -66,6 +74,7 @@ export default {
     return {
       selectSize: false,
       selectedSizePrice: null,
+      // selectedSize: null,
     };
   },
   setup() {
@@ -78,13 +87,17 @@ export default {
       this.selectSize = !this.selectSize;
       this.selectedSizePrice = null;
     },
-    sizeSelected(size) {
+    sizeSelected(size, price) {
+      console.log("size", size);
+      console.log("price", price);
       this.selectedSizePrice = size;
+      // this.selectedSize = size;
     },
-    sendingToCart(id) {
-      this.pizzaStore.addPizzaToCart(id);
+    sendingToCart(pizza) {
+      // var selectedPrice = this.selectedSizePrice;
+      this.pizzaStore.addPizzaToCart(pizza, this.selectedSizePrice);
       this.selectSize = false;
-      this.$router.push("/cart/" + id);
+      this.$router.push("/cart/" + pizza._id);
     },
   },
   // components: {

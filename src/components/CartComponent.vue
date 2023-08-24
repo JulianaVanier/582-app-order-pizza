@@ -2,12 +2,12 @@
   <section class="review-order">
     <div class="container">
       <PizzaItem
-        v-for="pizzaItemInCart in filterListCart"
+        v-for="pizzaItemInCart in listPizzaSelected"
         :key="pizzaItemInCart.id"
         :pizza="pizzaItemInCart"
       ></PizzaItem>
-      <h1>this is cart component:</h1>
-      {{ listPizzaSelected }}
+      <!-- <h1>this is cart component:</h1>
+      {{ listPizzaSelected }} -->
     </div>
   </section>
 </template>
@@ -29,19 +29,20 @@ export default {
     // pizzaStore.fetchPizza();
     return { listPizzaSelected, listOfPizzas };
   },
-  computed: {
-    filterListCart() {
-      var pizzasSelectedCart = [];
-      for (let i = 0; i < this.listPizzaSelected.length; i++) {
-        for (let j = 0; j < this.listOfPizzas.length; j++) {
-          if (this.listPizzaSelected[i] == this.listOfPizzas[j]._id) {
-            pizzasSelectedCart.push(this.listOfPizzas[j]);
-          }
-        }
-      }
-      return pizzasSelectedCart;
-    },
-  },
+  // computed: {
+  //   filterListCart() {
+  //     var pizzasSelectedCart = [];
+  //     for (let i = 0; i < this.listPizzaSelected.length; i++) {
+  //       console.log(this.listPizzaSelected[i]);
+  //       for (let j = 0; j < this.listOfPizzas.length; j++) {
+  //         if (this.listPizzaSelected[i] == this.listOfPizzas[j]._id) {
+  //           pizzasSelectedCart.push(this.listOfPizzas[j]);
+  //         }
+  //       }
+  //     }
+  //     return pizzasSelectedCart;
+  //   },
+  // },
 };
 </script>
 

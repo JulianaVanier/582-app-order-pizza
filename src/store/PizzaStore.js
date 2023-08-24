@@ -6,10 +6,10 @@ export const usePizzaStore = defineStore("pizzaStore", {
     pizzas: [],
   }),
   getters: {
-    getPizza: (state) => state.pizzas,
+    getPizzas: (state) => state.pizzas,
   },
   actions: {
-    setPizza(pizza) {
+    addPizza(pizza) {
       this.pizzas.push(pizza);
     },
   },

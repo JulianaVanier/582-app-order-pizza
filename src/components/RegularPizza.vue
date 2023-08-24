@@ -1,9 +1,10 @@
 <template>
   <section class="menu-pizza">
     <div class="container">
+      <h2>{{ pizzaStore.getPizza[0].title }}</h2>
       <div v-for="pizzaItem in pizzaStore.getPizza" :key="pizzaItem.id">
         <div class="box-menu-pizza">
-          <h2>{{ pizzaItem.title }}</h2>
+          <!-- <h2>{{  }}</h2> -->
           <p><img :src="pizzaItem.image" alt="Pizza image" /></p>
           <p>{{ pizzaItem.description }}</p>
           <div

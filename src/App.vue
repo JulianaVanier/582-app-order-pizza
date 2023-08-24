@@ -1,17 +1,17 @@
 <template>
   <HeaderApp></HeaderApp>
-  <RegularPizza></RegularPizza>
+  <MenuPizza></MenuPizza>
 </template>
 
 <script>
 import HeaderApp from "./components/HeaderApp.vue";
-import RegularPizza from "./components/RegularPizza.vue";
+import MenuPizza from "./components/MenuPizza.vue";
 
 export default {
   name: "App",
   components: {
     HeaderApp,
-    RegularPizza,
+    MenuPizza,
   },
 };
 </script>

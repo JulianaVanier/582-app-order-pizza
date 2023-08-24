@@ -33,6 +33,7 @@
           <p>X-Large</p>
         </div>
       </div>
+
       <p>{{ selectedSizePrice }}</p>
       <!-- <router-link :to="'/checkout/' + pizza._id">
         <div class="btn">Add to cart</div>
@@ -77,12 +78,13 @@ export default {
     },
     sendingToCart(id) {
       // console.log(id);
-      this.pizzaStore.addPizzaToCart(id, this.selectedSizePrice);
+      this.pizzaStore.addPizzaToCart(id);
       // console.log(this.selectSizePrice);
+      // console.log(size);
       this.selectSize = false;
-      // this.$router.push("/cart/" + id);
+      this.$router.push("/cart/" + id);
 
-      this.$router.push({ name: "cart", params: { id: id } });
+      // this.$router.push({ name: "cart", params: { id: id } });
     },
   },
   // components: {

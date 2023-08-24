@@ -1,21 +1,22 @@
 <template>
   <HeaderApp></HeaderApp>
   <MenuPizza></MenuPizza>
-  <!-- <router-view></router-view> -->
-  <CartView></CartView>
+  <router-view></router-view>
+  <!-- <CartView></CartView> -->
+  <router-link to="/cart/">Cart</router-link>
 </template>
 
 <script>
 import HeaderApp from "./components/HeaderApp.vue";
 import MenuPizza from "./components/MenuPizza.vue";
-import CartView from "./views/CartView.vue";
+// import CartView from "./views/CartView.vue";
 
 export default {
   name: "App",
   components: {
     HeaderApp,
     MenuPizza,
-    CartView,
+    // CartView,
   },
 };
 </script>

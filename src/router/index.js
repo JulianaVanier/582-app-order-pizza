@@ -28,7 +28,7 @@ const routes = [
     path: "/cart/:id",
     name: "cart",
     component: CartView,
-    // props: true,
+    props: true,
   },
 ];
 

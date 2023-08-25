@@ -6,8 +6,11 @@ export const useIngredientStore = defineStore("ingredientStore", {
     ingredients: [],
   }),
   getters: {
+    getIngredients: (state) => state.ingredients,
   },
   actions: {
-    
+    addIngredient(ingredient) {
+      this.ingredients.push(ingredient);
+    },
   },
 });

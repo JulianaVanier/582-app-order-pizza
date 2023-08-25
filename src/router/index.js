@@ -3,6 +3,7 @@ import { createRouter, createWebHistory } from "vue-router";
 // import CheckoutView from "../views/CheckoutView.vue";
 import CartView from "../views/CartView.vue";
 import IndexView from "../views/IndexView.vue";
+import CustomPizzaView from "../views/CustomPizzaView.vue";
 
 const routes = [
   // {
@@ -36,6 +37,12 @@ const routes = [
     path: "/cart/:id",
     name: "cart",
     component: CartView,
+    props: true,
+  },
+  {
+    path: "/customize/:id",
+    name: "customize",
+    component: CustomPizzaView,
     props: true,
   },
 ];

@@ -1,9 +1,15 @@
 <template>
-  <div></div>
+  <IngredientList></IngredientList>
 </template>
 
 <script>
-export default {};
+import IngredientList from "@/components/IngredientList.vue";
+
+export default {
+  components: {
+    IngredientList,
+  },
+};
 </script>
 
 <style lang="scss" scoped></style>

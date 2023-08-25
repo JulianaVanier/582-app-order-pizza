@@ -22,6 +22,14 @@ export default {
   color: #2c3e50;
 }
 
+.container {
+  width: 80%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
 .cart-btn {
   width: 50px;
   height: 50px;
@@ -61,7 +69,6 @@ export default {
 }
 .banner-top {
   width: 100%;
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -84,37 +91,29 @@ export default {
   justify-content: center;
   align-items: center;
   padding: 60px 0;
-  .container {
-    width: 80%;
-    height: 100%;
+  .box-menu-pizza {
+    width: 300px;
+    height: 400px;
+    border: 1px solid #ccc;
+    margin: 10px;
+    padding: 10px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
-    .box-menu-pizza {
-      width: 300px;
-      height: 400px;
-      border: 1px solid #ccc;
-      margin: 10px;
-      padding: 10px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      border-radius: 8px;
-      h2 {
-        font-size: 20px;
-        font-weight: bold;
-      }
-      img {
-        width: 200px;
-        max-height: 100%;
-        object-fit: cover;
-        margin: 10px 0;
-      }
-      p {
-        margin: 5px 0;
-      }
+    border-radius: 8px;
+    h2 {
+      font-size: 20px;
+      font-weight: bold;
+    }
+    img {
+      width: 200px;
+      max-height: 100%;
+      object-fit: cover;
+      margin: 10px 0;
+    }
+    p {
+      margin: 5px 0;
     }
   }
 }
@@ -241,37 +240,30 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  .container {
-    width: 80%;
-    height: 100%;
+
+  .box-menu-pizza {
+    width: 300px;
+    height: 400px;
+    border: 1px solid #ccc;
+    margin: 10px;
+    padding: 10px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
-    .box-menu-pizza {
-      width: 300px;
-      height: 400px;
-      border: 1px solid #ccc;
-      margin: 10px;
-      padding: 10px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      border-radius: 8px;
-      h2 {
-        font-size: 20px;
-        font-weight: bold;
-      }
-      img {
-        width: 200px;
-        max-height: 100%;
-        object-fit: cover;
-        margin: 10px 0;
-      }
-      p {
-        margin: 5px 0;
-      }
+    border-radius: 8px;
+    h2 {
+      font-size: 20px;
+      font-weight: bold;
+    }
+    img {
+      width: 200px;
+      max-height: 100%;
+      object-fit: cover;
+      margin: 10px 0;
+    }
+    p {
+      margin: 5px 0;
     }
   }
 }

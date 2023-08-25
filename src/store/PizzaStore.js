@@ -35,13 +35,33 @@ export const usePizzaStore = defineStore("pizzaStore", {
       this.pizzasInCart.splice(pizza, 1);
       this.count--;
     },
+
     pizzaAddQuantityInStore(pizza) {
       for (let i = 0; i < this.pizzasInCart.length; i++) {
         if (this.pizzasInCart[i]._id === pizza._id) {
           this.pizzasInCart[i].quantity++;
+          // var priceFloat = parseFloat(this.pizzasInCart[i].priceSelected);
+          // this.pizzasInCart[i].priceSelected = priceFloat + priceFloat;
+          // console.log("pizzaAddQuantityInStore", priceFloat);
+          // console.log("pizzas.sizeSelected2", this.pizzas.size.small);
+          // console.log("pizzas", pizzas);
+          // this.priceAddUpdate(pizza, pizzas);
         }
       }
     },
+    // priceAddUpdate(pizza, pizzas) {
+    //   for (let i = 0; i < this.pizzasInCart.length; i++) {
+    //     if (this.pizzasInCart[i]._id === pizzas._id) {
+    //       var priceFloat = parseFloat(this.pizzasInCart[i].priceSelected);
+    //       var valueSizeIncrease = pizzas.size[valueSizeIncrease];
+    //       this.pizzasInCart[i].priceSelected = priceFloat + valueSizeIncrease;
+    //       console.log("priceFloat", priceFloat);
+    //       console.log("pizzas.sizeSelected2", pizzas.size[valueSizeIncrease]);
+    //       console.log("priceAddUpdate", valueSizeIncrease);
+    //     }
+    //   }
+    // },
+
     pizzaRemoveQuantityInStore(pizza) {
       for (let i = 0; i < this.pizzasInCart.length; i++) {
         if (this.pizzasInCart[i]._id === pizza._id) {

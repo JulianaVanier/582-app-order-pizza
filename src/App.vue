@@ -267,6 +267,44 @@ export default {
     }
   }
 }
+
+// Style for ingredient
+
+.list-ingredients {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 0;
+  .box-indredient {
+    width: 200px;
+    height: 200px;
+    border: 1px solid #e9e8e8;
+    margin: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    background-color: #f8fbfe;
+    h3 {
+      font-size: 20px;
+      font-weight: bold;
+    }
+    img {
+      width: 100px;
+      max-height: 100%;
+      object-fit: cover;
+      margin: 10px 0;
+    }
+    p {
+      margin: 5px 0;
+    }
+  }
+}
+
 nav {
   padding: 30px;
 

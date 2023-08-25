@@ -25,7 +25,7 @@ export default {
     return { ingredientStore };
   },
   created() {
-    // this.pizzaStore.pizzas = [];
+    this.ingredientStore.ingredients = [];
     fetch("http://localhost:3000/ingredient")
       .then((response) => response.json())
       .then((json) => {

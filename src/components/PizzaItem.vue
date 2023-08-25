@@ -21,8 +21,12 @@
     <div v-else>
       <div class="box-features-cart">
         <div class="btn" @click="removePizzaFromCart(pizza)">Remove</div>
-        <p>Quantity: {{ pizza.quantity }}</p>
-        <p>Item total: {{ pizza.sizeSelected }}</p>
+        <div class="qt-order-item">
+          <div class="qt-btn" @click="pizzaAddQuantity(pizza)">+</div>
+          <div class="qt-number">{{ pizza.quantity }}</div>
+          <div class="qt-btn" @click="pizzaRemoveQuantity(pizza)">-</div>
+        </div>
+        <p>Item total: {{ pizza.priceSelected }}</p>
       </div>
     </div>
 
@@ -31,19 +35,19 @@
       <p @click="selectSize = false">X</p>
       <h3>Add Item</h3>
       <div class="select-size-box">
-        <div class="size" @click="sizeSelected(pizza.size.small)">
+        <div class="size" @click="sizeSelected('small', pizza.size.small)">
           <img src="/img/pizza-icon.png" alt="Icon pizza" />
           <p>Small</p>
         </div>
-        <div class="size" @click="sizeSelected(pizza.size.medium)">
+        <div class="size" @click="sizeSelected('medium', pizza.size.medium)">
           <img src="/img/pizza-icon.png" alt="Icon pizza" />
           <p>Medium</p>
         </div>
-        <div class="size" @click="sizeSelected(pizza.size.large)">
+        <div class="size" @click="sizeSelected('large', pizza.size.large)">
           <img src="/img/pizza-icon.png" alt="Icon pizza" />
           <p>Large</p>
         </div>
-        <div class="size" @click="sizeSelected(pizza.size.xlarge)">
+        <div class="size" @click="sizeSelected('xlarge', pizza.size.xlarge)">
           <img src="/img/pizza-icon.png" alt="Icon pizza" />
           <p>X-Large</p>
         </div>
@@ -74,7 +78,7 @@ export default {
     return {
       selectSize: false,
       selectedSizePrice: null,
-      // selectedSize: null,
+      selectedSize: null,
     };
   },
   setup() {
@@ -90,17 +94,28 @@ export default {
     sizeSelected(size, price) {
       console.log("size", size);
       console.log("price", price);
-      this.selectedSizePrice = size;
-      // this.selectedSize = size;
+      // console.log("price", price);
+      this.selectedSizePrice = price;
+      this.selectedSize = size;
     },
     sendingToCart(pizza) {
       // var selectedPrice = this.selectedSizePrice;
-      this.pizzaStore.addPizzaToCart(pizza, this.selectedSizePrice);
+      this.pizzaStore.addPizzaToCart(
+        pizza,
+        this.selectedSizePrice,
+        this.selectedSize
+      );
       this.selectSize = false;
       this.$router.push("/cart/" + pizza._id);
     },
     removePizzaFromCart(pizza) {
       this.pizzaStore.removePizzaFromCart(pizza);
+    },
+    pizzaAddQuantity(pizza) {
+      this.pizzaStore.pizzaAddQuantityInStore(pizza);
+    },
+    pizzaRemoveQuantity(pizza) {
+      this.pizzaStore.pizzaRemoveQuantityInStore(pizza);
     },
   },
   // components: {

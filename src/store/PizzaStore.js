@@ -40,6 +40,9 @@ export const usePizzaStore = defineStore("pizzaStore", {
       for (let i = 0; i < this.pizzasInCart.length; i++) {
         if (this.pizzasInCart[i]._id === pizza._id) {
           this.pizzasInCart[i].quantity++;
+          // var sizeVeio = this.pizzasInCart[i].sizeSelected;
+          // this.pizzasInCart[i].priceSelected =
+          //   this.pizzasInCart[i].priceSelected * 2;
           // var priceFloat = parseFloat(this.pizzasInCart[i].priceSelected);
           // this.pizzasInCart[i].priceSelected = priceFloat + priceFloat;
           // console.log("pizzaAddQuantityInStore", priceFloat);

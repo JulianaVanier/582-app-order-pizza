@@ -290,7 +290,7 @@ export default {
     border-radius: 8px;
     background-color: #f8fbfe;
     h3 {
-      font-size: 20px;
+      font-size: 18px;
       font-weight: bold;
     }
     img {

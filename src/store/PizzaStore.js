@@ -16,6 +16,18 @@ export const usePizzaStore = defineStore("pizzaStore", {
       this.pizzas.push(pizza);
     },
     addPizzaToCart(pizza, price, size) {
+      // if the same pizza with the same size is added again, it doesn't print a new pizza,
+      // it just increases the quantity
+      for (let i = 0; i < this.pizzasInCart.length; i++) {
+        if (
+          pizza._id === this.pizzasInCart[i]._id &&
+          size === this.pizzasInCart[i].sizeSelected
+        ) {
+          this.pizzasInCart[i].quantity++;
+          return;
+        }
+      }
+      // create new pizza object to add to cart
       var pizzaToCart = {
         _id: pizza._id,
         title: pizza.title,
@@ -26,11 +38,11 @@ export const usePizzaStore = defineStore("pizzaStore", {
         toppings: pizza.toppings,
         quantity: 1,
       };
-
       this.pizzasInCart.push(pizzaToCart);
       this.count++;
       console.log("objeto to cart", this.pizzasInCart);
     },
+
     removePizzaFromCart(pizza) {
       this.pizzasInCart.splice(pizza, 1);
       this.count--;
@@ -43,7 +55,7 @@ export const usePizzaStore = defineStore("pizzaStore", {
         }
       }
     },
-
+    // calculate the total price of the pizza in the cart
     calcTotalPricePizzaInCart(id) {
       var totalPrice = 0.0;
       for (let i = 0; i < this.pizzasInCart.length; i++) {

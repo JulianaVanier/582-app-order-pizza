@@ -91,14 +91,12 @@ export default {
   },
   methods: {
     selectSizeRun() {
-      // console.log(id);
       this.selectSize = !this.selectSize;
       this.selectedSizePrice = null;
     },
     sizeSelected(size, price) {
       console.log("size", size);
       console.log("price", price);
-      // console.log("price", price);
       this.selectedSizePrice = price;
       this.selectedSize = size;
     },
@@ -111,6 +109,7 @@ export default {
       this.selectSize = false;
       this.$router.push("/cart/" + pizza._id);
     },
+
     removePizzaFromCart(pizza) {
       this.pizzaStore.removePizzaFromCart(pizza);
     },
@@ -119,6 +118,10 @@ export default {
       this.totalPrice = this.pizzaStore.calcTotalPricePizzaInCart(pizza._id);
     },
     pizzaRemoveQuantity(pizza) {
+      // condition to delete pizza if quantity is 1
+      if (pizza.quantity === 1) {
+        this.pizzaStore.removePizzaFromCart(pizza);
+      }
       this.pizzaStore.pizzaRemoveQuantityInStore(pizza);
       this.totalPrice = this.pizzaStore.calcTotalPricePizzaInCart(pizza._id);
     },

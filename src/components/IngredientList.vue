@@ -26,7 +26,7 @@ export default {
   },
   created() {
     this.ingredientStore.ingredients = [];
-    fetch("http://localhost:3000/ingredient")
+    fetch("http://localhost:3000/customizepizza")
       .then((response) => response.json())
       .then((json) => {
         for (let ingredient of json) {

@@ -30,7 +30,7 @@
           <div class="qt-number">{{ pizza.quantity }}</div>
           <div class="qt-btn" @click="pizzaRemoveQuantity(pizza)">-</div>
         </div>
-        <p>Item total: {{ pizza.priceSelected }}</p>
+        <p>Item total: {{ totalPrice }}</p>
       </div>
     </div>
 
@@ -82,6 +82,7 @@ export default {
       selectSize: false,
       selectedSizePrice: null,
       selectedSize: null,
+      totalPrice: 0.0,
     };
   },
   setup() {
@@ -102,7 +103,6 @@ export default {
       this.selectedSize = size;
     },
     sendingToCart(pizza) {
-      // var selectedPrice = this.selectedSizePrice;
       this.pizzaStore.addPizzaToCart(
         pizza,
         this.selectedSizePrice,
@@ -116,14 +116,16 @@ export default {
     },
     pizzaAddQuantity(pizza) {
       this.pizzaStore.pizzaAddQuantityInStore(pizza);
+      this.totalPrice = this.pizzaStore.calcTotalPricePizzaInCart(pizza._id);
     },
     pizzaRemoveQuantity(pizza) {
       this.pizzaStore.pizzaRemoveQuantityInStore(pizza);
+      this.totalPrice = this.pizzaStore.calcTotalPricePizzaInCart(pizza._id);
     },
   },
-  // components: {
-  //   CheckoutView,
-  // },
+  created() {
+    this.totalPrice = this.pizzaStore.calcTotalPricePizzaInCart(this.pizza._id);
+  },
 };
 </script>
 

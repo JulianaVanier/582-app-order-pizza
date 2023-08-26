@@ -29,20 +29,6 @@ export default {
     // pizzaStore.fetchPizza();
     return { listPizzaSelected, listOfPizzas };
   },
-  // computed: {
-  //   filterListCart() {
-  //     var pizzasSelectedCart = [];
-  //     for (let i = 0; i < this.listPizzaSelected.length; i++) {
-  //       console.log(this.listPizzaSelected[i]);
-  //       for (let j = 0; j < this.listOfPizzas.length; j++) {
-  //         if (this.listPizzaSelected[i] == this.listOfPizzas[j]._id) {
-  //           pizzasSelectedCart.push(this.listOfPizzas[j]);
-  //         }
-  //       }
-  //     }
-  //     return pizzasSelectedCart;
-  //   },
-  // },
 };
 </script>
 

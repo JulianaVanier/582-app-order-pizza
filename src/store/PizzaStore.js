@@ -40,30 +40,20 @@ export const usePizzaStore = defineStore("pizzaStore", {
       for (let i = 0; i < this.pizzasInCart.length; i++) {
         if (this.pizzasInCart[i]._id === pizza._id) {
           this.pizzasInCart[i].quantity++;
-          // var sizeVeio = this.pizzasInCart[i].sizeSelected;
-          // this.pizzasInCart[i].priceSelected =
-          //   this.pizzasInCart[i].priceSelected * 2;
-          // var priceFloat = parseFloat(this.pizzasInCart[i].priceSelected);
-          // this.pizzasInCart[i].priceSelected = priceFloat + priceFloat;
-          // console.log("pizzaAddQuantityInStore", priceFloat);
-          // console.log("pizzas.sizeSelected2", this.pizzas.size.small);
-          // console.log("pizzas", pizzas);
-          // this.priceAddUpdate(pizza, pizzas);
         }
       }
     },
-    // priceAddUpdate(pizza, pizzas) {
-    //   for (let i = 0; i < this.pizzasInCart.length; i++) {
-    //     if (this.pizzasInCart[i]._id === pizzas._id) {
-    //       var priceFloat = parseFloat(this.pizzasInCart[i].priceSelected);
-    //       var valueSizeIncrease = pizzas.size[valueSizeIncrease];
-    //       this.pizzasInCart[i].priceSelected = priceFloat + valueSizeIncrease;
-    //       console.log("priceFloat", priceFloat);
-    //       console.log("pizzas.sizeSelected2", pizzas.size[valueSizeIncrease]);
-    //       console.log("priceAddUpdate", valueSizeIncrease);
-    //     }
-    //   }
-    // },
+
+    calcTotalPricePizzaInCart(id) {
+      var totalPrice = 0.0;
+      for (let i = 0; i < this.pizzasInCart.length; i++) {
+        if (this.pizzasInCart[i]._id === id) {
+          totalPrice =
+            this.pizzasInCart[i].priceSelected * this.pizzasInCart[i].quantity;
+        }
+      }
+      return totalPrice;
+    },
 
     pizzaRemoveQuantityInStore(pizza) {
       for (let i = 0; i < this.pizzasInCart.length; i++) {

@@ -15,7 +15,11 @@
     </div>
 
     <!-- Condition to show customize button for Custom Pizza - go to new View -->
-    <div v-else-if="pizza.custom === true" class="btn">Customize</div>
+    <div v-else-if="pizza.custom === true">
+      <router-link :to="'/customize/' + pizza._id">
+        <div class="btn">Customize</div>
+      </router-link>
+    </div>
 
     <!-- Condition to show options when pizza is in the cart -->
     <div v-else>
@@ -64,7 +68,6 @@
 
 <script>
 import { usePizzaStore } from "@/store/PizzaStore";
-// import CheckoutView from "@/views/CheckoutView.vue";
 
 export default {
   name: "PizzaItem",

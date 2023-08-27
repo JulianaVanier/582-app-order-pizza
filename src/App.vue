@@ -200,37 +200,6 @@ export default {
       font-weight: bold;
     }
   }
-  // .cart-btn {
-  //   width: 50px;
-  //   height: 50px;
-  //   border-radius: 50%;
-  //   background-color: #eeeded;
-  //   display: flex;
-  //   justify-content: center;
-  //   align-items: center;
-  //   cursor: pointer;
-  //   .cart {
-  //     position: relative;
-  //     img {
-  //       width: 30px;
-  //       height: 30px;
-  //     }
-  //     .qt-cart {
-  //       position: absolute;
-  //       top: -5px;
-  //       right: -7px;
-  //       width: 20px;
-  //       height: 20px;
-  //       border-radius: 50%;
-  //       background-color: #ff2401;
-  //       color: #fff;
-  //       font-weight: bold;
-  //       display: flex;
-  //       justify-content: center;
-  //       align-items: center;
-  //     }
-  //   }
-  // }
 }
 
 // Style for cart component
@@ -305,6 +274,20 @@ export default {
   }
 }
 
+.pizza-image {
+  margin: auto;
+  position: relative;
+  width: 340px;
+  height: 340px;
+}
+
+// Style for ingredients
+.ingredient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 50;
+}
 nav {
   padding: 30px;
 

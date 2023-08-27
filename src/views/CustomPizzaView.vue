@@ -5,13 +5,11 @@
     :key="pizzaItemCustomize.id"
     :pizza="pizzaItemCustomize"
   ></PizzaItem>
-  <CustomPizza></CustomPizza>
   <IngredientList></IngredientList>
 </template>
 
 <script>
 import IngredientList from "@/components/IngredientList.vue";
-import CustomPizza from "@/components/CustomPizza.vue";
 import { usePizzaStore } from "@/store/PizzaStore";
 import PizzaItem from "@/components/PizzaItem.vue";
 
@@ -19,7 +17,6 @@ export default {
   name: "CustomPizzaView",
   components: {
     IngredientList,
-    CustomPizza,
     PizzaItem,
   },
   setup() {

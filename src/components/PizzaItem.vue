@@ -2,7 +2,45 @@
   <!-- <h3>{{ pizzaStore.getPizzas[0] }}</h3> -->
   <div class="box-menu-pizza">
     <h2>{{ pizza.title }}</h2>
-    <img :src="pizza.image" alt="Pizza image" />
+    <div class="pizza-image">
+      <img :src="pizza.image" alt="Pizza image" class="img-pizza-main" />
+      <img
+        v-show="true"
+        src="/img/green-peppers-pizza.png"
+        alt=""
+        class="ingredient"
+      />
+      <img
+        v-show="true"
+        src="/img/brocolli-pizza.webp"
+        alt=""
+        class="ingredient"
+      />
+      <img
+        v-show="true"
+        src="/img/mushrooms-pizza.webp"
+        alt=""
+        class="ingredient"
+      />
+      <img
+        v-show="true"
+        src="/img/red-onions-pizza.png"
+        alt=""
+        class="ingredient"
+      />
+      <img
+        v-show="true"
+        src="/img/spinach-pizza.png"
+        alt=""
+        class="ingredient"
+      />
+      <img
+        v-show="true"
+        src="/img/tomatos-pizza.png"
+        alt=""
+        class="ingredient"
+      />
+    </div>
     <p>{{ pizza.description }}</p>
 
     <!-- Button display pop up to select size of pizza -->

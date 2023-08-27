@@ -5,11 +5,13 @@ export const usePizzaStore = defineStore("pizzaStore", {
   state: () => ({
     pizzas: [],
     pizzasInCart: [],
+    pizzaCustomized: [],
     count: 0,
   }),
   getters: {
     getPizzas: (state) => state.pizzas,
     getPizzasInCart: (state) => state.pizzasInCart,
+    getPizzaCustomized: (state) => state.pizzaCustomized,
   },
   actions: {
     addPizza(pizza) {
@@ -73,6 +75,10 @@ export const usePizzaStore = defineStore("pizzaStore", {
           this.pizzasInCart[i].quantity--;
         }
       }
+    },
+
+    addPizzaCustomize(pizza) {
+      this.pizzaCustomized.push(pizza);
     },
   },
 });

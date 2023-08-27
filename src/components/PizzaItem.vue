@@ -16,9 +16,7 @@
 
     <!-- Condition to show customize button for Custom Pizza - go to new View -->
     <div v-else-if="pizza.custom === true">
-      <router-link :to="'/customize/' + pizza._id">
-        <div class="btn">Customize</div>
-      </router-link>
+      <div class="btn" @click="sentToCustomize(pizza)">Customize</div>
     </div>
 
     <!-- Condition to show options when pizza is in the cart -->
@@ -124,6 +122,10 @@ export default {
       }
       this.pizzaStore.pizzaRemoveQuantityInStore(pizza);
       this.totalPrice = this.pizzaStore.calcTotalPricePizzaInCart(pizza._id);
+    },
+    sentToCustomize(pizza) {
+      this.pizzaStore.addPizzaCustomize(pizza);
+      this.$router.push("/customize/" + pizza._id);
     },
   },
   created() {

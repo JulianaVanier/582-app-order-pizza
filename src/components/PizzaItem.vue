@@ -5,38 +5,10 @@
     <div class="pizza-image">
       <img :src="pizza.image" alt="Pizza image" class="img-pizza-main" />
       <img
-        v-show="true"
-        src="/img/green-peppers-pizza.png"
-        alt=""
-        class="ingredient"
-      />
-      <img
-        v-show="true"
-        src="/img/brocolli-pizza.webp"
-        alt=""
-        class="ingredient"
-      />
-      <img
-        v-show="true"
-        src="/img/mushrooms-pizza.webp"
-        alt=""
-        class="ingredient"
-      />
-      <img
-        v-show="true"
-        src="/img/red-onions-pizza.png"
-        alt=""
-        class="ingredient"
-      />
-      <img
-        v-show="true"
-        src="/img/spinach-pizza.png"
-        alt=""
-        class="ingredient"
-      />
-      <img
-        v-show="true"
-        src="/img/tomatos-pizza.png"
+        v-for="ingredient in ingredientStore.getIngredients"
+        :key="ingredient._id"
+        v-show="displayIngredients(ingredient._id)"
+        :src="ingredient.imageCustom"
         alt=""
         class="ingredient"
       />
@@ -104,6 +76,7 @@
 
 <script>
 import { usePizzaStore } from "@/store/PizzaStore";
+import { useIngredientStore } from "@/store/IngredientStore";
 
 export default {
   name: "PizzaItem",
@@ -119,11 +92,13 @@ export default {
       selectedSizePrice: null,
       selectedSize: null,
       totalPrice: 0.0,
+      listIngredients: ["64e90465752a93342434fcc8", "64e904e0752a93342434fcca"],
     };
   },
   setup() {
     const pizzaStore = usePizzaStore();
-    return { pizzaStore };
+    const ingredientStore = useIngredientStore();
+    return { pizzaStore, ingredientStore };
   },
   methods: {
     selectSizeRun() {
@@ -165,9 +140,28 @@ export default {
       this.pizzaStore.addPizzaCustomize(pizza);
       this.$router.push("/customize/" + pizza._id);
     },
+    displayIngredients(ingredientId) {
+      console.log("ingredientId", ingredientId);
+      console.log("this.listIngredients", this.listIngredients);
+      if (this.listIngredients.includes(ingredientId)) {
+        return true;
+      } else {
+        return false;
+      }
+    },
+    toggleIngredient(ingredientId) {
+      for (let i = 0; i < this.listIngredients.length; i++) {
+        if (ingredientId === this.listIngredients[i]) {
+          this.listIngredients.splice(this.listIngredients[i], 1);
+        } else {
+          this.listIngredients.push(ingredientId);
+        }
+      }
+    },
   },
   created() {
     this.totalPrice = this.pizzaStore.calcTotalPricePizzaInCart(this.pizza._id);
+    this.toggleIngredient("64e90465752a93342434fcc8");
   },
 };
 </script>

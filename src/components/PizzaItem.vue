@@ -43,7 +43,28 @@
           <p>Item total: {{ totalPrice }}</p>
         </div>
         <div class="total-price" v-else>
-          <p>Item total: {{ totalPriceCustom }}</p>
+          <p v-if="totalPriceCustom === pizza.priceSelected">
+            Item total:
+            {{
+              pizzaStore.calcTotalPricePizzaCustom(
+                pizza._id,
+                this.ingredientStore.gettotalPriceIngredientAdded
+              )
+            }}
+            <!-- {{
+              totalPriceCustom + ingredientStore.gettotalPriceIngredientAdded
+            }} -->
+          </p>
+          <p v-else>
+            Item total:
+            {{
+              pizzaStore.calcTotalPricePizzaCustom(
+                pizza._id,
+                this.ingredientStore.gettotalPriceIngredientAdded
+              )
+            }}
+            <!-- {{ totalPriceCustom }} -->
+          </p>
         </div>
       </div>
     </div>
@@ -125,7 +146,6 @@ export default {
       );
       this.selectSize = false;
       if (pizza.custom === true) {
-        console.log("para vc ve", pizza.custom);
         this.$router.push("/customize/" + pizza._id);
       } else {
         this.$router.push("/cart/" + pizza._id);
@@ -136,11 +156,11 @@ export default {
       this.pizzaStore.removePizzaFromCart(pizza);
     },
     pizzaAddQuantity(pizza) {
-      console.log("AQUI A louca", pizza.customize);
       if (pizza.customize === true) {
         this.pizzaStore.pizzaCustomAddQuantityInStore(pizza);
         this.totalPriceCustom = this.pizzaStore.calcTotalPricePizzaCustom(
-          pizza._id
+          pizza._id,
+          this.ingredientStore.gettotalPriceIngredientAdded
         );
       } else {
         this.pizzaStore.pizzaAddQuantityInStore(pizza);
@@ -153,9 +173,14 @@ export default {
         this.pizzaStore.removePizzaFromCart(pizza);
       }
       this.pizzaStore.pizzaRemoveQuantityInStore(pizza);
+      console.log(
+        "AQUI A louca",
+        this.ingredientStore.gettotalPriceIngredientAdded
+      );
       if (pizza.customize === true) {
         this.totalPriceCustom = this.pizzaStore.calcTotalPricePizzaCustom(
-          pizza._id
+          pizza._id,
+          this.ingredientStore.gettotalPriceIngredientAdded
         );
       } else {
         this.totalPrice = this.pizzaStore.calcTotalPricePizzaInCart(pizza._id);
@@ -170,7 +195,8 @@ export default {
   created() {
     this.totalPrice = this.pizzaStore.calcTotalPricePizzaInCart(this.pizza._id);
     this.totalPriceCustom = this.pizzaStore.calcTotalPricePizzaCustom(
-      this.pizza._id
+      this.pizza._id,
+      this.ingredientStore.gettotalPriceIngredientAdded
     );
     // this.toggleIngredient("64e904ad752a93342434fcc9");
   },

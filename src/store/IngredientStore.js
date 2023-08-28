@@ -1,4 +1,5 @@
 import { defineStore } from "pinia";
+import { usePizzaStore } from "@/store/PizzaStore";
 
 export const useIngredientStore = defineStore("ingredientStore", {
   // state = data
@@ -13,6 +14,12 @@ export const useIngredientStore = defineStore("ingredientStore", {
     getIngredients: (state) => state.ingredients,
     getIngredientsAdded: (state) => state.ingredientsAdded,
     getPriceIngredientAdded: (state) => state.priceIngredientAdded,
+    gettotalPriceIngredientAdded: (state) => state.totalPriceIngredientAdded,
+  },
+  setup() {
+    return {
+      pizzaStore: usePizzaStore(),
+    };
   },
   actions: {
     addIngredient(ingredient) {
@@ -35,19 +42,12 @@ export const useIngredientStore = defineStore("ingredientStore", {
           this.ingredientsAdded.splice(i, 1);
           this.priceIngredientAdded.splice(i, 1);
           this.totalPriceIngredientAdded -= ingredient.price;
-          console.log("removidooooo", this.totalPriceIngredientAdded);
           return;
         }
       }
       this.ingredientsAdded.push(ingredient._id);
       this.priceIngredientAdded.push(ingredient);
       this.totalPriceIngredientAdded += ingredient.price;
-
-      // for (let i = 0; i < this.priceIngredientAdded.length; i++) {
-
-      //   this.totalPriceIngredientAdded += this.priceIngredientAdded[i].price;
-      // }
-      console.log(this.totalPriceIngredientAdded);
     },
 
     displayIngredient(ingredientId) {

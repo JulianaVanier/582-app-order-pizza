@@ -18,8 +18,11 @@ export const usePizzaStore = defineStore("pizzaStore", {
       this.pizzas.push(pizza);
     },
     addPizzaToCart(pizza, price, size) {
-      // if the same pizza with the same size is added again, it doesn't print a new pizza,
-      // it just increases the quantity
+      // clean the array of customized pizzas
+      if (this.pizzaCustomized !== null) {
+        this.pizzaCustomized = [];
+      }
+
       if (pizza.custom === true) {
         var pizzaToCustomize = {
           _id: pizza._id,
@@ -35,6 +38,8 @@ export const usePizzaStore = defineStore("pizzaStore", {
         return;
       }
 
+      // if the same pizza with the same size is added again, it doesn't print a new pizza,
+      // it just increases the quantity
       for (let i = 0; i < this.pizzasInCart.length; i++) {
         if (
           pizza._id === this.pizzasInCart[i]._id &&

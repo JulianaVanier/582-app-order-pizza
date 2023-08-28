@@ -7,16 +7,11 @@ export const useIngredientStore = defineStore("ingredientStore", {
     ingredientsAdded: [],
     priceIngredientAdded: [],
     displayIngredient: false,
-    // isTomato: false,
-    // isRedOnions: false,
   }),
   getters: {
     getIngredients: (state) => state.ingredients,
     getIngredientsAdded: (state) => state.ingredientsAdded,
     getPriceIngredientAdded: (state) => state.priceIngredientAdded,
-    // getDisplayIngredient: (state) => state.displayIngredient,
-    // getIsTomato: (state) => state.isTomato,
-    // getIsRedOnions: (state) => state.isRedOnions,
   },
   actions: {
     addIngredient(ingredient) {
@@ -42,8 +37,13 @@ export const useIngredientStore = defineStore("ingredientStore", {
       }
       this.ingredientsAdded.push(ingredient._id);
       this.priceIngredientAdded.push(ingredient);
+      console.log(this.priceIngredientAdded);
 
-
+      var totalPriceIngredientAdded = 0;
+      for (let i = 0; i < this.priceIngredientAdded.length; i++) {
+        totalPriceIngredientAdded += this.priceIngredientAdded[i].price;
+      }
+      console.log(totalPriceIngredientAdded);
     },
 
     displayIngredient(ingredientId) {

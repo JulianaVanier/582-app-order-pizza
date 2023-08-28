@@ -22,7 +22,18 @@ export const usePizzaStore = defineStore("pizzaStore", {
       // it just increases the quantity
       console.log("pizza", pizza.custom);
       if (pizza.custom === true) {
-        this.pizzaCustomized.push(pizza);
+        var pizzaToCustomize = {
+          _id: pizza._id,
+          customize: pizza.custom,
+          title: pizza.title,
+          description: pizza.description,
+          sizeSelected: size,
+          priceSelected: price,
+          image: pizza.image,
+          quantity: 1,
+        };
+        console.log("pizzaToCustomize", pizzaToCustomize);
+        this.pizzaCustomized.push(pizzaToCustomize);
         return;
       }
 
@@ -39,6 +50,7 @@ export const usePizzaStore = defineStore("pizzaStore", {
       var pizzaToCart = {
         _id: pizza._id,
         title: pizza.title,
+        customize: pizza.custom,
         description: pizza.description,
         sizeSelected: size,
         priceSelected: price,
@@ -60,6 +72,15 @@ export const usePizzaStore = defineStore("pizzaStore", {
       for (let i = 0; i < this.pizzasInCart.length; i++) {
         if (this.pizzasInCart[i]._id === pizza._id) {
           this.pizzasInCart[i].quantity++;
+          console.log("dentro do add", pizza.custom);
+        }
+      }
+    },
+    pizzaCustomAddQuantityInStore(pizza) {
+      console.log("entrou no add qt", this.pizzaCustomized.length);
+      for (let i = 0; i < this.pizzaCustomized.length; i++) {
+        if (this.pizzaCustomized[i]._id === pizza._id) {
+          this.pizzaCustomized[i].quantity++;
         }
       }
     },
@@ -70,6 +91,17 @@ export const usePizzaStore = defineStore("pizzaStore", {
         if (this.pizzasInCart[i]._id === id) {
           totalPrice =
             this.pizzasInCart[i].priceSelected * this.pizzasInCart[i].quantity;
+        }
+      }
+      return totalPrice;
+    },
+    calcTotalPricePizzaCustom(id) {
+      var totalPrice = 0.0;
+      for (let i = 0; i < this.pizzaCustomized.length; i++) {
+        if (this.pizzaCustomized[i]._id === id) {
+          totalPrice =
+            this.pizzaCustomized[i].priceSelected *
+            this.pizzaCustomized[i].quantity;
         }
       }
       return totalPrice;

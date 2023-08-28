@@ -119,6 +119,7 @@ export default {
       );
       this.selectSize = false;
       if (pizza.custom === true) {
+        console.log("para vc ve", pizza.custom);
         this.$router.push("/customize/" + pizza._id);
       } else {
         this.$router.push("/cart/" + pizza._id);
@@ -129,8 +130,14 @@ export default {
       this.pizzaStore.removePizzaFromCart(pizza);
     },
     pizzaAddQuantity(pizza) {
-      this.pizzaStore.pizzaAddQuantityInStore(pizza);
-      this.totalPrice = this.pizzaStore.calcTotalPricePizzaInCart(pizza._id);
+      console.log("AQUI A louca", pizza.customize);
+      if (pizza.customize === true) {
+        this.pizzaStore.pizzaCustomAddQuantityInStore(pizza);
+        this.totalPrice = this.pizzaStore.calcTotalPricePizzaCustom(pizza._id);
+      } else {
+        this.pizzaStore.pizzaAddQuantityInStore(pizza);
+        this.totalPrice = this.pizzaStore.calcTotalPricePizzaInCart(pizza._id);
+      }
     },
     pizzaRemoveQuantity(pizza) {
       // condition to delete pizza if quantity is 1

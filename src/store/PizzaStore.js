@@ -35,6 +35,7 @@ export const usePizzaStore = defineStore("pizzaStore", {
           quantity: 1,
         };
         this.pizzaCustomized.push(pizzaToCustomize);
+        console.log("pizza to customize", this.pizzaCustomized);
         return;
       }
 
@@ -64,6 +65,10 @@ export const usePizzaStore = defineStore("pizzaStore", {
       this.pizzasInCart.push(pizzaToCart);
       this.count++;
       // console.log("objeto to cart", this.pizzasInCart);
+    },
+
+    addCustomToCart(pizza) {
+      this.pizzasInCart.push(pizza);
     },
 
     removePizzaFromCart(pizza) {

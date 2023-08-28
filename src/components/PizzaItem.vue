@@ -34,6 +34,7 @@
     <div v-else>
       <div class="box-features-cart">
         <div class="btn" @click="removePizzaFromCart(pizza)">Remove</div>
+
         <div class="qt-order-item">
           <div class="qt-btn" @click="pizzaAddQuantity(pizza)">+</div>
           <div class="qt-number">{{ pizza.quantity }}</div>
@@ -65,6 +66,7 @@
             }}
             <!-- {{ totalPriceCustom }} -->
           </p>
+          <div class="btn" @click="sendingCustomToCart(pizza)">Add to Cart</div>
         </div>
       </div>
     </div>
@@ -173,10 +175,7 @@ export default {
         this.pizzaStore.removePizzaFromCart(pizza);
       }
       this.pizzaStore.pizzaRemoveQuantityInStore(pizza);
-      console.log(
-        "AQUI A louca",
-        this.ingredientStore.gettotalPriceIngredientAdded
-      );
+
       if (pizza.customize === true) {
         this.totalPriceCustom = this.pizzaStore.calcTotalPricePizzaCustom(
           pizza._id,
@@ -187,10 +186,14 @@ export default {
       }
       // this.totalPrice = this.pizzaStore.calcTotalPricePizzaInCart(pizza._id);
     },
-    // sentToCustomize(pizza) {
-    //   this.pizzaStore.addPizzaCustomize(pizza);
-    //   this.$router.push("/customize/" + pizza._id);
-    // },
+    sendingCustomToCart(pizza) {
+      this.pizzaStore.addCustomToCart(
+        pizza,
+        this.totalPriceCustom,
+        this.selectedSize
+      );
+      this.$router.push("/cart/" + pizza._id);
+    },
   },
   created() {
     this.totalPrice = this.pizzaStore.calcTotalPricePizzaInCart(this.pizza._id);

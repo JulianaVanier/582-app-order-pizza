@@ -8,6 +8,7 @@
       </div>
     </router-link>
   </div>
+
   <!-- <div class="cart-qt">{{ pizzaStore.count }}</div> -->
   <section class="menu-pizza">
     <div class="container">
@@ -23,6 +24,7 @@
 <script>
 import PizzaItem from "./PizzaItem.vue";
 import { usePizzaStore } from "@/store/PizzaStore";
+import { useIngredientStore } from "@/store/IngredientStore";
 
 export default {
   name: "RegularPizza",
@@ -36,12 +38,15 @@ export default {
   },
   setup() {
     const pizzaStore = usePizzaStore();
+    const ingredientStore = useIngredientStore();
 
     // pizzaStore.fetchPizza();
-    return { pizzaStore };
+    return { pizzaStore, ingredientStore };
   },
   created() {
     this.pizzaStore.pizzas = [];
+    this.ingredientStore.ingredientsAdded = [];
+
     fetch("http://localhost:3000/pizza")
       .then((response) => response.json())
       .then((json) => {

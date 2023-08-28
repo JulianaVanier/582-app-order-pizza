@@ -154,6 +154,7 @@ export default {
   },
   created() {
     this.totalPrice = this.pizzaStore.calcTotalPricePizzaInCart(this.pizza._id);
+    this.totalPrice = this.pizzaStore.calcTotalPricePizzaCustom(this.pizza._id);
     // this.toggleIngredient("64e904ad752a93342434fcc9");
   },
 };

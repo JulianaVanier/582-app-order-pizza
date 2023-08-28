@@ -64,8 +64,12 @@ export const usePizzaStore = defineStore("pizzaStore", {
     },
 
     removePizzaFromCart(pizza) {
-      this.pizzasInCart.splice(pizza, 1);
-      this.count--;
+      if (pizza.customize === true) {
+        this.pizzaCustomized.splice(pizza, 1);
+      } else {
+        this.pizzasInCart.splice(pizza, 1);
+        this.count--;
+      }
     },
 
     pizzaAddQuantityInStore(pizza) {
@@ -108,9 +112,17 @@ export const usePizzaStore = defineStore("pizzaStore", {
     },
 
     pizzaRemoveQuantityInStore(pizza) {
-      for (let i = 0; i < this.pizzasInCart.length; i++) {
-        if (this.pizzasInCart[i]._id === pizza._id) {
-          this.pizzasInCart[i].quantity--;
+      if (pizza.customize === true) {
+        for (let i = 0; i < this.pizzaCustomized.length; i++) {
+          if (this.pizzaCustomized[i]._id === pizza._id) {
+            this.pizzaCustomized[i].quantity--;
+          }
+        }
+      } else {
+        for (let i = 0; i < this.pizzasInCart.length; i++) {
+          if (this.pizzasInCart[i]._id === pizza._id) {
+            this.pizzasInCart[i].quantity--;
+          }
         }
       }
     },

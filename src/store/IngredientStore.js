@@ -7,6 +7,7 @@ export const useIngredientStore = defineStore("ingredientStore", {
     ingredientsAdded: [],
     priceIngredientAdded: [],
     displayIngredient: false,
+    totalPriceIngredientAdded: 0,
   }),
   getters: {
     getIngredients: (state) => state.ingredients,
@@ -25,6 +26,7 @@ export const useIngredientStore = defineStore("ingredientStore", {
       ) {
         this.ingredientsAdded.push(ingredient._id);
         this.priceIngredientAdded.push(ingredient);
+        this.totalPriceIngredientAdded += ingredient.price;
         return;
       }
 
@@ -32,18 +34,20 @@ export const useIngredientStore = defineStore("ingredientStore", {
         if (ingredient._id === this.ingredientsAdded[i]) {
           this.ingredientsAdded.splice(i, 1);
           this.priceIngredientAdded.splice(i, 1);
+          this.totalPriceIngredientAdded -= ingredient.price;
+          console.log("removidooooo", this.totalPriceIngredientAdded);
           return;
         }
       }
       this.ingredientsAdded.push(ingredient._id);
       this.priceIngredientAdded.push(ingredient);
-      console.log(this.priceIngredientAdded);
+      this.totalPriceIngredientAdded += ingredient.price;
 
-      var totalPriceIngredientAdded = 0;
-      for (let i = 0; i < this.priceIngredientAdded.length; i++) {
-        totalPriceIngredientAdded += this.priceIngredientAdded[i].price;
-      }
-      console.log(totalPriceIngredientAdded);
+      // for (let i = 0; i < this.priceIngredientAdded.length; i++) {
+
+      //   this.totalPriceIngredientAdded += this.priceIngredientAdded[i].price;
+      // }
+      console.log(this.totalPriceIngredientAdded);
     },
 
     displayIngredient(ingredientId) {

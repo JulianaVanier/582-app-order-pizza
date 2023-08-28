@@ -92,7 +92,6 @@ export default {
       selectedSizePrice: null,
       selectedSize: null,
       totalPrice: 0.0,
-      // listIngredients: ["64e904ad752a93342434fcc9", "64e904e0752a93342434fcca"],
     };
   },
   setup() {
@@ -140,27 +139,6 @@ export default {
       this.pizzaStore.addPizzaCustomize(pizza);
       this.$router.push("/customize/" + pizza._id);
     },
-    // displayIngredients(ingredientId) {
-
-    //   // console.log("ingredientId", ingredientId);
-    //   // console.log("this.listIngredients", this.listIngredients);
-    //   // if (this.ingredientStore.getIngredientsAdded.includes(ingredientId)) {
-    //   //   return true;
-    //   // } else {
-    //   //   return false;
-    //   // }
-    // },
-    //   toggleIngredient(ingredientId) {
-    //     for (let i = 0; i < this.listIngredients.length; i++) {
-    //       if (ingredientId === this.listIngredients[i]) {
-    //         // this.ingredientStore.removeIngredientToStore(ingredientId);
-    //         this.listIngredients.splice(this.listIngredients[i], 1);
-    //       } else {
-    //         // this.ingredientStore.addIngredientToStore(ingredientId);
-    //         this.listIngredients.push(ingredientId);
-    //       }
-    //     }
-    //   },
   },
   created() {
     this.totalPrice = this.pizzaStore.calcTotalPricePizzaInCart(this.pizza._id);

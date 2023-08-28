@@ -100,15 +100,18 @@ export const usePizzaStore = defineStore("pizzaStore", {
       return totalPrice;
     },
     calcTotalPricePizzaCustom(id) {
-      var totalPrice = 0.0;
+      var totalPriceCustom = 0.0;
+
       for (let i = 0; i < this.pizzaCustomized.length; i++) {
         if (this.pizzaCustomized[i]._id === id) {
-          totalPrice =
+          totalPriceCustom =
             this.pizzaCustomized[i].priceSelected *
             this.pizzaCustomized[i].quantity;
+          console.log("qual quantity", this.pizzaCustomized[i].quantity);
+          console.log("price", this.pizzaCustomized[i].priceSelected);
         }
       }
-      return totalPrice;
+      return totalPriceCustom;
     },
 
     pizzaRemoveQuantityInStore(pizza) {
@@ -116,6 +119,10 @@ export const usePizzaStore = defineStore("pizzaStore", {
         for (let i = 0; i < this.pizzaCustomized.length; i++) {
           if (this.pizzaCustomized[i]._id === pizza._id) {
             this.pizzaCustomized[i].quantity--;
+            console.log(
+              "qual quantity dentro remove",
+              this.pizzaCustomized[i].quantity
+            );
           }
         }
       } else {

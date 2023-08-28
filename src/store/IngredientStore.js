@@ -44,7 +44,7 @@ export const useIngredientStore = defineStore("ingredientStore", {
       this.ingredientsAdded.push(ingredient._id);
     },
 
-    doGiu(ingredientId) {
+    displayIngredient(ingredientId) {
       for (let i = 0; i < this.ingredientsAdded.length; i++) {
         if (ingredientId === this.ingredientsAdded[i]) {
           return true;

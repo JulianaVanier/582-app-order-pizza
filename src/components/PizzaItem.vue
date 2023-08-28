@@ -7,7 +7,7 @@
       <img
         v-for="ingredient in ingredientStore.getIngredients"
         :key="ingredient._id"
-        v-show="ingredientStore.doGiu(ingredient._id)"
+        v-show="ingredientStore.displayIngredient(ingredient._id)"
         :src="ingredient.imageCustom"
         alt=""
         class="ingredient"
@@ -26,7 +26,8 @@
 
     <!-- Condition to show customize button for Custom Pizza - go to new View -->
     <div v-else-if="pizza.custom === true">
-      <div class="btn" @click="sentToCustomize(pizza)">Customize</div>
+      <!-- <div class="btn" @click="sentToCustomize(pizza)">Customize</div> -->
+      <div class="btn" @click="selectSizeRun(pizza._id)">Customize</div>
     </div>
 
     <!-- Condition to show options when pizza is in the cart -->
@@ -117,7 +118,11 @@ export default {
         this.selectedSize
       );
       this.selectSize = false;
-      this.$router.push("/cart/" + pizza._id);
+      if (pizza.custom === true) {
+        this.$router.push("/customize/" + pizza._id);
+      } else {
+        this.$router.push("/cart/" + pizza._id);
+      }
     },
 
     removePizzaFromCart(pizza) {
@@ -135,10 +140,10 @@ export default {
       this.pizzaStore.pizzaRemoveQuantityInStore(pizza);
       this.totalPrice = this.pizzaStore.calcTotalPricePizzaInCart(pizza._id);
     },
-    sentToCustomize(pizza) {
-      this.pizzaStore.addPizzaCustomize(pizza);
-      this.$router.push("/customize/" + pizza._id);
-    },
+    // sentToCustomize(pizza) {
+    //   this.pizzaStore.addPizzaCustomize(pizza);
+    //   this.$router.push("/customize/" + pizza._id);
+    // },
   },
   created() {
     this.totalPrice = this.pizzaStore.calcTotalPricePizzaInCart(this.pizza._id);

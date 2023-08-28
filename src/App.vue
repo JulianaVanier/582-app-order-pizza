@@ -142,6 +142,7 @@ export default {
   padding: 40px 0;
   border-radius: 8px;
   // display: flex;
+  z-index: 1;
   .select-size-box {
     width: 100%;
     height: 100%;

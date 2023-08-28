@@ -74,6 +74,7 @@ export const usePizzaStore = defineStore("pizzaStore", {
       for (let i = 0; i < this.pizzasInCart.length; i++) {
         if (this.pizzasInCart[i]._id === pizza._id) {
           this.pizzasInCart[i].quantity++;
+          this.count++;
           this.calcTotalPricePizzaCustom(pizza._id);
         }
       }
@@ -82,6 +83,7 @@ export const usePizzaStore = defineStore("pizzaStore", {
       for (let i = 0; i < this.pizzaCustomized.length; i++) {
         if (this.pizzaCustomized[i]._id === pizza._id) {
           this.pizzaCustomized[i].quantity++;
+          this.count++;
         }
       }
     },
@@ -115,12 +117,14 @@ export const usePizzaStore = defineStore("pizzaStore", {
         for (let i = 0; i < this.pizzaCustomized.length; i++) {
           if (this.pizzaCustomized[i]._id === pizza._id) {
             this.pizzaCustomized[i].quantity--;
+            this.count--;
           }
         }
       } else {
         for (let i = 0; i < this.pizzasInCart.length; i++) {
           if (this.pizzasInCart[i]._id === pizza._id) {
             this.pizzasInCart[i].quantity--;
+            this.count--;
           }
         }
       }

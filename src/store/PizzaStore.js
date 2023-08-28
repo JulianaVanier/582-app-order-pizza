@@ -42,7 +42,7 @@ export const usePizzaStore = defineStore("pizzaStore", {
       };
       this.pizzasInCart.push(pizzaToCart);
       this.count++;
-      console.log("objeto to cart", this.pizzasInCart);
+      // console.log("objeto to cart", this.pizzasInCart);
     },
 
     removePizzaFromCart(pizza) {

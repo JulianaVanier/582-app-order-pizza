@@ -286,7 +286,7 @@ export default {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 50;
+  // z-index: 50;
 }
 nav {
   padding: 30px;

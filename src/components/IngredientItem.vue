@@ -1,5 +1,9 @@
 <template>
-  <div class="box-indredient">
+  <!-- <div class="box-indredient" @click="toggleIngredientPizza(ingredient)"> -->
+  <div
+    class="box-indredient"
+    @click="ingredientStore.toggleIngredient(ingredient)"
+  >
     <h3>{{ ingredient.title }}</h3>
     <img :src="ingredient.image" alt="Ingredient image" />
     <p>{{ ingredient.price }}</p>
@@ -19,6 +23,12 @@ export default {
   setup() {
     const ingredientStore = useIngredientStore();
     return { ingredientStore };
+  },
+  methods: {
+    // toggleIngredientPizza(ingredient) {
+    //   console.log("AQUI TOGGLE");
+    //   this.ingredientStore.toggleIngredient(ingredient);
+    // },
   },
 };
 </script>

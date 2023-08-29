@@ -32,6 +32,7 @@ export const usePizzaStore = defineStore("pizzaStore", {
           sizeSelected: size,
           priceSelected: price,
           image: pizza.image,
+          ingredient: [],
           quantity: 1,
         };
         this.pizzaCustomized.push(pizzaToCustomize);
@@ -59,7 +60,7 @@ export const usePizzaStore = defineStore("pizzaStore", {
         sizeSelected: size,
         priceSelected: price,
         image: pizza.image,
-        toppings: pizza.toppings,
+        ingredient: pizza.ingredient,
         quantity: 1,
       };
       this.pizzasInCart.push(pizzaToCart);

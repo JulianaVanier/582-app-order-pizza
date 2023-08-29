@@ -2,7 +2,12 @@
   <!-- <div class="box-indredient" @click="toggleIngredientPizza(ingredient)"> -->
   <div
     class="box-indredient"
-    @click="ingredientStore.toggleIngredient(ingredient)"
+    @click="
+      ingredientStore.toggleIngredient(
+        ingredient,
+        pizzaStore.getPizzaCustomized
+      )
+    "
   >
     <h3>{{ ingredient.title }}</h3>
     <img :src="ingredient.image" alt="Ingredient image" />
@@ -12,6 +17,7 @@
 
 <script>
 import { useIngredientStore } from "@/store/IngredientStore";
+import { usePizzaStore } from "@/store/PizzaStore";
 export default {
   name: "IngredientItem",
   props: {
@@ -22,7 +28,8 @@ export default {
   },
   setup() {
     const ingredientStore = useIngredientStore();
-    return { ingredientStore };
+    const pizzaStore = usePizzaStore();
+    return { ingredientStore, pizzaStore };
   },
   methods: {
     // toggleIngredientPizza(ingredient) {

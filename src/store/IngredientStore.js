@@ -26,6 +26,46 @@ export const useIngredientStore = defineStore("ingredientStore", {
       this.ingredients.push(ingredient);
     },
 
+    // toggleIngredient(ingredient, pizzaCustomize) {
+    //   console.log("ingredient", ingredient);
+    //   console.log("pizzaCustomize", pizzaCustomize.ingredient);
+    //   var ingredientPizzaCustom = pizzaCustomize.ingredient;
+    //   console.log("ingredientPizzaCustom", ingredientPizzaCustom);
+
+    //   if (ingredientPizzaCustom === 0) {
+    //     ingredientPizzaCustom.push(ingredient);
+    //     this.totalPriceIngredientAdded += ingredient.price;
+    //     console.log("o que deu", ingredientPizzaCustom);
+    //     return;
+    //   }
+
+    //   for (let i = 0; i < ingredientPizzaCustom.length; i++)
+    //     if (ingredientPizzaCustom[i] === ingredient._id) {
+    //       ingredientPizzaCustom.splice(i, 1);
+    //       this.totalPriceIngredientAdded -= ingredient.price;
+    //     } else {
+    //       ingredientPizzaCustom.push(ingredient);
+    //       this.totalPriceIngredientAdded += ingredient.price;
+    //       // console.log("ingredient added", ingredient);
+    //       // console.log("pizzaCustomize", pizzaCustomize[i].ingredient);
+    //       // console.log("total price", this.totalPriceIngredientAdded);
+    //       return;
+    //     }
+
+    //   for (let i = 0; i < ingredientPizzaCustom.length; i++)
+    //     if (ingredientPizzaCustom[i] === ingredient._id) {
+    //       ingredientPizzaCustom.splice(i, 1);
+    //       this.totalPriceIngredientAdded -= ingredient.price;
+    //     } else {
+    //       ingredientPizzaCustom.push(ingredient);
+    //       this.totalPriceIngredientAdded += ingredient.price;
+    //       // console.log("ingredient added", ingredient);
+    //       // console.log("pizzaCustomize", pizzaCustomize[i].ingredient);
+    //       // console.log("total price", this.totalPriceIngredientAdded);
+    //       return;
+    //     }
+    // },
+
     toggleIngredient(ingredient) {
       if (
         this.ingredientsAdded.length === 0 ||

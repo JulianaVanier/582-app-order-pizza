@@ -7,7 +7,7 @@
       <img
         v-for="ingredient in ingredientStore.getIngredients"
         :key="ingredient._id"
-        v-show="ingredientStore.displayIngredient(ingredient.id)"
+        v-show="ingredientStore.displayIngredientInPizza(ingredient)"
         :src="ingredient.imageCustom"
         alt=""
         class="ingredient"

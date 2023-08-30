@@ -14,6 +14,7 @@ export const useIngredientStore = defineStore("ingredientStore", {
     getIngredients: (state) => state.ingredients,
     getIngredientsAdded: (state) => state.ingredientsAdded,
     getPriceIngredientAdded: (state) => state.priceIngredientAdded,
+    getdisplayIngredient: (state) => state.displayIngredient,
     gettotalPriceIngredientAdded: (state) => state.totalPriceIngredientAdded,
   },
   setup() {
@@ -26,77 +27,83 @@ export const useIngredientStore = defineStore("ingredientStore", {
       this.ingredients.push(ingredient);
     },
 
-    // toggleIngredient(ingredient, pizzaCustomize) {
-    //   console.log("ingredient", ingredient);
-    //   console.log("pizzaCustomize", pizzaCustomize.ingredient);
-    //   var ingredientPizzaCustom = pizzaCustomize.ingredient;
-    //   console.log("ingredientPizzaCustom", ingredientPizzaCustom);
+    toggleIngredient(ingredient, pizzaCustomized) {
+      var pizzaCustomWithIngredient = pizzaCustomized[0];
 
-    //   if (ingredientPizzaCustom === 0) {
-    //     ingredientPizzaCustom.push(ingredient);
-    //     this.totalPriceIngredientAdded += ingredient.price;
-    //     console.log("o que deu", ingredientPizzaCustom);
-    //     return;
-    //   }
+      for (let i = 0; i < pizzaCustomWithIngredient.ingredient.length; i++) {
+        console.log("para ver o objeto", pizzaCustomWithIngredient.ingredient);
+        console.log("id do array", pizzaCustomWithIngredient.ingredient[0]._id);
+        console.log("id que entrou", ingredient._id);
+        if (pizzaCustomWithIngredient.ingredient[i]._id === ingredient._id) {
+          // var pizzaCustomIngredient = pizzaCustomWithIngredient.ingredient[i];
 
-    //   for (let i = 0; i < ingredientPizzaCustom.length; i++)
-    //     if (ingredientPizzaCustom[i] === ingredient._id) {
-    //       ingredientPizzaCustom.splice(i, 1);
-    //       this.totalPriceIngredientAdded -= ingredient.price;
-    //     } else {
-    //       ingredientPizzaCustom.push(ingredient);
-    //       this.totalPriceIngredientAdded += ingredient.price;
-    //       // console.log("ingredient added", ingredient);
-    //       // console.log("pizzaCustomize", pizzaCustomize[i].ingredient);
-    //       // console.log("total price", this.totalPriceIngredientAdded);
-    //       return;
-    //     }
+          pizzaCustomWithIngredient.ingredient =
+            pizzaCustomWithIngredient.ingredient.filter(
+              (ing) => ing._id !== ingredient._id
+            );
+          this.displayIngredient = false;
+          // this.ingredientsAdded.splice(i, 1);
 
-    //   for (let i = 0; i < ingredientPizzaCustom.length; i++)
-    //     if (ingredientPizzaCustom[i] === ingredient._id) {
-    //       ingredientPizzaCustom.splice(i, 1);
-    //       this.totalPriceIngredientAdded -= ingredient.price;
-    //     } else {
-    //       ingredientPizzaCustom.push(ingredient);
-    //       this.totalPriceIngredientAdded += ingredient.price;
-    //       // console.log("ingredient added", ingredient);
-    //       // console.log("pizzaCustomize", pizzaCustomize[i].ingredient);
-    //       // console.log("total price", this.totalPriceIngredientAdded);
-    //       return;
-    //     }
-    // },
-
-    toggleIngredient(ingredient) {
-      if (
-        this.ingredientsAdded.length === 0 ||
-        this.priceIngredientAdded.length === 0
-      ) {
-        this.ingredientsAdded.push(ingredient._id);
-        this.priceIngredientAdded.push(ingredient);
-        this.totalPriceIngredientAdded += ingredient.price;
-        return;
-      }
-
-      for (let i = 0; i < this.ingredientsAdded.length; i++) {
-        if (ingredient._id === this.ingredientsAdded[i]) {
-          this.ingredientsAdded.splice(i, 1);
-          this.priceIngredientAdded.splice(i, 1);
+          // pizzaCustomWithIngredient.ingredient.splice(i, 1);
           this.totalPriceIngredientAdded -= ingredient.price;
+          console.log(
+            "preco total depois remover",
+            this.totalPriceIngredientAdded
+          );
+          console.log("para ver AQUI", pizzaCustomWithIngredient.ingredient);
           return;
         }
       }
-      this.ingredientsAdded.push(ingredient._id);
-      this.priceIngredientAdded.push(ingredient);
+
+      pizzaCustomWithIngredient.ingredient.push(ingredient);
       this.totalPriceIngredientAdded += ingredient.price;
+      // this.ingredientsAdded.push(ingredient);
+
+      // console.log(
+      //   "para ver o array do ingredient dentro da pizza",
+      //   pizzaCustomWithIngredient
+      // );
+      // console.log(
+      //   "preco total depois adicionar",
+      //   this.totalPriceIngredientAdded
+      // );
     },
 
-    displayIngredient(ingredientId) {
-      for (let i = 0; i < this.ingredientsAdded.length; i++) {
-        if (ingredientId === this.ingredientsAdded[i]) {
-          return true;
-        }
-      }
-      return false;
-    },
+    // displayIngredient(ingredient, pizzaCustomized) {
+    //   console.log("ingredient aaaaaaaaaaaa", ingredient);
+    //   console.log("pizzaCustomize bbbbbbbbbb", pizzaCustomized);
+    //   console.log("pizzaCustomize ccccccccccc", pizzaCustomized.ingredient);
+    //   // if (pizzaCustomized.ingredient === 0) {
+    //   //   return false;
+    //   // }
+    //   // var pizzaCustomWithIngredient = pizzaCustomize[0];
+    //   // console.log("TOMA", pizzaCustomWithIngredient.ingredient);
+    //   // for (let i = 0; i < pizzaCustomized.ingredient.length; i++)
+    //   //   if (pizzaCustomized.ingredient[i]._id === ingredient._id) {
+    //   //     return true;
+    //   //   }
+    //   // return false;
+    // },
+
+    // displayIngredient(ingredientId) {
+    //   console.log("ingredient aADED", this.ingredientsAdded);
+    //   console.log("ingredient aaaaaaaaaaaa", ingredientId);
+    //   // console.log("pizzaCustomize bbbbbbbbbb", pizzaCustomized);
+    //   // console.log("pizzaCustomize ccccccccccc", pizzaCustomized.ingredient);
+
+    //   // if (this.ingredientsAdded.includes(ingredientId)) {
+    //   //   return true;
+    //   // } else {
+    //   //   return false;
+    //   // }
+
+    //   // var pizzaCustomWithIngredient = pizzaCustomized[0];
+    //   // for (let i = 0; i < pizzaCustomWithIngredient.ingredient.length; i++) {
+    //   //   if (pizzaCustomWithIngredient.ingredient[i]._id === ingredient._id) {
+    //   //     return true;
+    //   //   }
+    //   // }
+    //   // return false;
+    // },
   },
 });

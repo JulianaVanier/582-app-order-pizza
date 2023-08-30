@@ -1,17 +1,22 @@
 <template>
-  <!-- <h3>{{ pizzaStore.getPizzas[0] }}</h3> -->
   <div class="box-menu-pizza">
     <h2>{{ pizza.title }}</h2>
     <div class="pizza-image">
       <img :src="pizza.image" alt="Pizza image" class="img-pizza-main" />
-      <img
-        v-for="ingredient in ingredientStore.getIngredients"
-        :key="ingredient._id"
-        v-show="ingredientStore.displayIngredientInPizza(ingredient)"
-        :src="ingredient.imageCustom"
-        alt=""
-        class="ingredient"
-      />
+      <!-- --------------------------------------------------------------------------- -->
+
+      <!-- Looping to display ingredients in custom pizza -->
+      <div class="display-ing" v-if="pizza.customize === true">
+        <img
+          v-for="ingredient in ingredientStore.getIngredients"
+          :key="ingredient._id"
+          v-show="ingredientStore.displayIngredientInPizza(ingredient)"
+          :src="ingredient.imageCustom"
+          alt=""
+          class="ingredient"
+        />
+      </div>
+      <!-- --------------------------------------------------------------------------- -->
     </div>
     <p>{{ pizza.description }}</p>
 
@@ -23,12 +28,14 @@
     >
       Add to cart
     </div>
+    <!-- --------------------------------------------------------------------------- -->
 
     <!-- Condition to show customize button for Custom Pizza - go to new View -->
     <div v-else-if="pizza.custom === true">
       <!-- <div class="btn" @click="sentToCustomize(pizza)">Customize</div> -->
       <div class="btn" @click="selectSizeRun(pizza._id)">Customize</div>
     </div>
+    <!-- --------------------------------------------------------------------------- -->
 
     <!-- Condition to show options when pizza is in the cart -->
     <div v-else>
@@ -70,6 +77,7 @@
         </div>
       </div>
     </div>
+    <!-- --------------------------------------------------------------------------- -->
 
     <!-- Popup to select size of pizza -->
     <div class="select-size" :class="[selectSize ? 'appears' : 'disappears']">
@@ -93,10 +101,11 @@
           <p>X-Large</p>
         </div>
       </div>
+      <!-- --------------------------------------------------------------------------- -->
 
       <!-- Display value size selected -->
       <p>{{ selectedSizePrice }}</p>
-      <!-- -- -->
+      <!-- --------------------------------------------------------------------------- -->
 
       <div class="btn" @click="sendingToCart(pizza)">Add to cart</div>
     </div>
@@ -192,6 +201,33 @@ export default {
         this.totalPriceCustom,
         this.selectedSize
       );
+      console.log("pizza", pizza);
+      //       {
+      //     "_id": "64e2c45e2c41f4d99ac2cd14",
+      //     "customize": true,
+      //     "title": "Create your owm",
+      //     "description": "Custom pizza",
+      //     "sizeSelected": "small",
+      //     "priceSelected": 8.99,
+      //     "image": "/img/base-pizza.webp",
+      //     "ingredient": [
+      //         {
+      //             "_id": "64e904ad752a93342434fcc9",
+      //             "title": "Mushrooms",
+      //             "price": 2.39,
+      //             "image": "/img/mushrooms.avif",
+      //             "imageCustom": "/img/mushrooms-pizza.webp"
+      //         },
+      //         {
+      //             "_id": "64e90465752a93342434fcc8",
+      //             "title": "Red Onions",
+      //             "price": 1.99,
+      //             "image": "/img/red-onions.avif",
+      //             "imageCustom": "/img/red-onions-pizza.png"
+      //         }
+      //     ],
+      //     "quantity": 1
+      // }
       this.$router.push("/cart/" + pizza._id);
     },
   },

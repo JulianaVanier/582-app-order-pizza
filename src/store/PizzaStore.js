@@ -70,6 +70,7 @@ export const usePizzaStore = defineStore("pizzaStore", {
 
     addCustomToCart(pizza) {
       this.pizzasInCart.push(pizza);
+      this.pizzaCustomized = [];
     },
 
     removePizzaFromCart(pizza) {

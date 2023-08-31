@@ -74,12 +74,15 @@ export const usePizzaStore = defineStore("pizzaStore", {
     },
 
     removePizzaFromCart(pizza) {
-      if (pizza.customize === true) {
-        this.pizzaCustomized.splice(pizza, 1);
-      } else {
-        this.pizzasInCart.splice(pizza, 1);
-        this.count--;
-      }
+      // if (pizza.customize === true) {
+      //   this.pizzaCustomized.splice(pizza, 1);
+      // } else {
+      //   this.pizzasInCart.splice(pizza, 1);
+      //   this.count--;
+      // }
+
+      this.pizzasInCart.splice(pizza, 1);
+      this.count--;
     },
 
     pizzaAddQuantityInStore(pizza) {

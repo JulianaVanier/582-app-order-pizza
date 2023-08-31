@@ -53,8 +53,3 @@
 //     expect(wrapper.find('h3').text()).toBe('Tomato'); // Corrigido o erro aqui
 //   });
 // });
-
-
-
-
-

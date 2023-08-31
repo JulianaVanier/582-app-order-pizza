@@ -104,12 +104,11 @@ export const usePizzaStore = defineStore("pizzaStore", {
       var totalPrice = 0.0;
       for (let i = 0; i < this.pizzasInCart.length; i++) {
         if (this.pizzasInCart[i]._id === id) {
-          totalPrice = (
-            this.pizzasInCart[i].priceSelected * this.pizzasInCart[i].quantity
-          ).indexOf(2);
+          totalPrice =
+            this.pizzasInCart[i].priceSelected * this.pizzasInCart[i].quantity;
         }
       }
-      return totalPrice;
+      return totalPrice.toFixed(2);
     },
     calcTotalPricePizzaCustom(id, totalPriceIngredientAdded) {
       var totalPriceCustom = 0.0;

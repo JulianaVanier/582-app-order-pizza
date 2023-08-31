@@ -40,19 +40,25 @@
     <!-- Condition to show options when pizza is in the cart -->
     <div v-else>
       <div class="box-features-cart">
-        <div class="btn" @click="removePizzaFromCart(pizza)">Remove</div>
+        <div class="delete-pizza" @click="removePizzaFromCart(pizza)">
+          <img src="/img/delete-icon.png" alt="Icon button delete" />
+        </div>
 
         <div class="qt-order-item">
-          <div class="qt-btn" @click="pizzaAddQuantity(pizza)">+</div>
+          <div class="qt-btn" @click="pizzaAddQuantity(pizza)">
+            <img src="/img/add.png" alt="Icon button add" />
+          </div>
           <div class="qt-number">{{ pizza.quantity }}</div>
-          <div class="qt-btn" @click="pizzaRemoveQuantity(pizza)">-</div>
+          <div class="qt-btn" @click="pizzaRemoveQuantity(pizza)">
+            <img src="/img/remove.png" alt="Icon button remove" />
+          </div>
         </div>
         <div class="total-price" v-if="pizza.customize === false">
-          <p>Item total: {{ totalPrice }}</p>
+          <p>Item total: ${{ totalPrice }}</p>
         </div>
         <div class="total-price" v-else>
           <p v-if="totalPriceCustom === pizza.priceSelected">
-            Item total:
+            Item total: $
             {{
               pizzaStore.calcTotalPricePizzaCustom(
                 pizza._id,
@@ -64,7 +70,7 @@
             }} -->
           </p>
           <p v-else>
-            Item total:
+            Item total: $
             {{
               pizzaStore.calcTotalPricePizzaCustom(
                 pizza._id,
@@ -104,7 +110,7 @@
       <!-- --------------------------------------------------------------------------- -->
 
       <!-- Display value size selected -->
-      <p>{{ selectedSizePrice }}</p>
+      <p>${{ selectedSizePrice }}</p>
       <!-- --------------------------------------------------------------------------- -->
 
       <div class="btn" @click="sendingToCart(pizza)">Add to cart</div>

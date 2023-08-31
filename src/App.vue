@@ -14,6 +14,7 @@ export default {
 </script>
 
 <style lang="scss">
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -93,10 +94,10 @@ export default {
   padding: 60px 0;
   .box-menu-pizza {
     width: 300px;
-    height: 400px;
+    height: 450px;
     border: 1px solid #ccc;
     margin: 10px;
-    padding: 10px;
+    // padding: 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -105,6 +106,7 @@ export default {
     h2 {
       font-size: 20px;
       font-weight: bold;
+      font-family: "Poppins", sans-serif;
     }
     img {
       width: 200px;
@@ -114,6 +116,7 @@ export default {
     }
     p {
       margin: 5px 0;
+      font-family: "Poppins", sans-serif;
     }
   }
 }
@@ -202,6 +205,18 @@ export default {
     }
   }
 }
+.box-menu-pizza {
+  position: relative;
+  width: fit-content;
+  margin: auto;
+  h2 {
+    padding: 10px 0;
+    font-family: "Poppins", sans-serif;
+  }
+  p {
+    font-family: "Poppins", sans-serif;
+  }
+}
 
 // Style for cart component
 .review-order {
@@ -213,10 +228,10 @@ export default {
 
   .box-menu-pizza {
     width: 300px;
-    height: 400px;
+    height: 450px;
     border: 1px solid #ccc;
     margin: 10px;
-    padding: 10px;
+    // padding: 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -276,10 +291,10 @@ export default {
 }
 
 .pizza-image {
-  margin: auto;
+  // margin: auto;
   position: relative;
-  width: 340px;
-  height: 340px;
+  // width: 300px;
+  // height: 340px;
 }
 
 // Style for ingredients
@@ -288,6 +303,56 @@ export default {
   top: 0;
   left: 0;
   // z-index: 50;
+}
+
+// Style for box quantity in
+.box-features-cart {
+  .delete-pizza {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #eeeded;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    img {
+      width: 20px;
+      height: 20px;
+    }
+  }
+  .qt-order-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .qt-btn {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background-color: #eeeded;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      img {
+        width: 20px;
+        height: 20px;
+      }
+    }
+    .qt-number {
+      margin: 0 10px;
+    }
+  }
+  .total-price {
+    p {
+      margin-top: 10px;
+      font-size: 25px;
+      font-weight: bold;
+    }
+  }
 }
 nav {
   padding: 30px;

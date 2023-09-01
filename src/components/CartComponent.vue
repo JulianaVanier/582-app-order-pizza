@@ -23,7 +23,9 @@
         </div>
       </div>
       <div class="box-btn-checkout">
-        <div class="btn">Place Order</div>
+        <div class="btn" @click="pizzaStore.placeOrder(pizzaInCart)">
+          Place Order
+        </div>
       </div>
     </div>
   </section>

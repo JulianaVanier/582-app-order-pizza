@@ -177,5 +177,54 @@ export const usePizzaStore = defineStore("pizzaStore", {
       }
       return totalPrice.toFixed(2);
     },
+
+    distributionPizzasinOrder() {
+      var pizzasInOrder = [];
+      for (let i = 0; i < this.pizzasInCart.length; i++) {
+        pizzasInOrder.push(this.pizzasInCart[i]);
+        // if (this.pizzasInCart[i].customize === false) {
+        //   pizzaInCart.push(this.pizzasInCart[i]);
+        // }
+      }
+      return pizzasInOrder;
+    },
+
+    placeOrder(pizzaInCart) {
+      console.log("PLACE ORDER", pizzaInCart);
+
+      var orderToDb = {
+        _id: null,
+        pizza: this.distributionPizzasinOrder(),
+        // [
+        //   {
+        //     id: pizzaInCart._id,
+        //     size: pizzaInCart.sizeSelected,
+        //     quantity: pizzaInCart.quantity,
+        //     price: pizzaInCart.priceSelected,
+        //     ingredient: pizzaInCart.ingredient,
+        //   },
+        // ],
+        date: new Date().toISOString(),
+        totalprice: this.getTotalPriceCart(),
+      };
+
+      console.log("ORDER TO DB", orderToDb);
+
+      fetch("http://localhost:3000/placeorder", {
+        method: "POST",
+        body: JSON.stringify(orderToDb),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+        .then((response) => {
+          console.log(response);
+          alert("Order placed successfully!");
+          return response.text();
+        })
+        .then((data) => {
+          console.log(data);
+        });
+    },
   },
 });

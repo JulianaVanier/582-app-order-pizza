@@ -117,6 +117,7 @@ export default {
     p {
       margin: 5px 0;
       font-family: "Poppins", sans-serif;
+      width: 90%;
     }
   }
 }

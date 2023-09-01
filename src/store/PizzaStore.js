@@ -167,5 +167,14 @@ export const usePizzaStore = defineStore("pizzaStore", {
         }
       }
     },
+    getTotalPriceCart() {
+      var totalPrice = 0.0;
+      console.log("HELLO", this.pizzasInCart);
+      for (let i = 0; i < this.pizzasInCart.length; i++) {
+        console.log("HELLO 2", this.pizzasInCart[i]);
+        totalPrice += this.pizzasInCart[i].priceSelected;
+      }
+      return totalPrice;
+    },
   },
 });

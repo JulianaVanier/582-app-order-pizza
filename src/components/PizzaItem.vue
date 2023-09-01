@@ -77,9 +77,11 @@
                 this.ingredientStore.gettotalPriceIngredientAdded
               )
             }}
-            <!-- {{ totalPriceCustom }} -->
           </p>
+
+          <!-- Button add to card in pizza custom in custom view -->
           <div class="btn" @click="sendingCustomToCart(pizza)">Add to Cart</div>
+          <!-- --------------------------------------------------------------------------- -->
         </div>
       </div>
     </div>
@@ -113,7 +115,9 @@
       <p>{{ selectedSizePrice }}</p>
       <!-- --------------------------------------------------------------------------- -->
 
+      <!-- Button add to cart in Menu List -->
       <div class="btn" @click="sendingToCart(pizza)">Add to cart</div>
+      <!-- --------------------------------------------------------------------------- -->
     </div>
   </div>
 </template>
@@ -162,7 +166,7 @@ export default {
         this.selectedSize
       );
       this.selectSize = false;
-      console.log("idPizza", idPizza);
+      // console.log("idPizza", idPizza);
       if (pizza.custom === true) {
         this.$router.push("/customize/" + idPizza);
       } else {
@@ -208,14 +212,14 @@ export default {
         this.totalPriceCustom,
         this.selectedSize
       );
-      console.log("pizza", pizza);
+      // console.log("pizza", pizza);
 
       this.$router.push("/cart/" + pizza._id);
     },
     //https://stackoverflow.com/questions/56303878/vue-js-cant-access-to-router-parameters-from-computed-property
     displayIngredientInPizza: function (ingredientId) {
-      console.log("ID INNGREDIENT", ingredientId);
-      console.log("PIZZAAAAA", this.pizza.ingredient);
+      // console.log("ID INNGREDIENT", ingredientId);
+      // console.log("PIZZAAAAA", this.pizza.ingredient);
       for (let i = 0; i < this.pizza.ingredient.length; i++) {
         // console.log("TEST 1 ", typeof this.pizzaToCustomize[i].id);
         // console.log("TEST 2 ", typeof this.$route.params.id);

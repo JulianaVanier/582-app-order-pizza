@@ -14,15 +14,14 @@ export const usePizzaStore = defineStore("pizzaStore", {
     getPizzaCustomized: (state) => state.pizzaCustomized,
   },
   actions: {
+    // Receiving fetch
     addPizza(pizza) {
       this.pizzas.push(pizza);
     },
-    addPizzaToCart(pizza, price, size) {
-      // clean the array of customized pizzas
-      // if (this.pizzaCustomized !== null) {
-      //   this.pizzaCustomized = [];
-      // }
+    // -- --------------------------------------------------------------------------- --
 
+    addPizzaToCart(pizza, price, size) {
+      // Creating custom objetct to add to cart
       if (pizza.custom === true) {
         var pizzaToCustomize = {
           _id: pizza._id,
@@ -37,12 +36,14 @@ export const usePizzaStore = defineStore("pizzaStore", {
           ingredient: [],
           quantity: 1,
         };
-        this.pizzaCustomized.push(pizzaToCustomize);
-        console.log("pizza to customize", pizzaToCustomize.id);
 
+        this.pizzaCustomized.push(pizzaToCustomize);
+        // returning the id of the pizza to customize to function sendingToCart in PizzaItem
         return pizzaToCustomize.id;
       }
+      // -- --------------------------------------------------------------------------- --
 
+      // REGULAR PIZZA
       // if the same pizza with the same size is added again, it doesn't print a new pizza,
       // it just increases the quantity
       for (let i = 0; i < this.pizzasInCart.length; i++) {
@@ -54,7 +55,9 @@ export const usePizzaStore = defineStore("pizzaStore", {
           return;
         }
       }
-      // create new pizza object to add to cart
+      // -- --------------------------------------------------------------------------- --
+
+      // Creating regular pizza objetct to add to cart
       var pizzaToCart = {
         _id: pizza._id,
         title: pizza.title,
@@ -70,10 +73,11 @@ export const usePizzaStore = defineStore("pizzaStore", {
       this.count++;
       // console.log("objeto to cart", this.pizzasInCart);
     },
+    // -- --------------------------------------------------------------------------- --
 
     addCustomToCart(pizza) {
       this.pizzasInCart.push(pizza);
-      // this.pizzaCustomized = [];
+      this.count++;
     },
 
     removePizzaFromCart(pizza) {
@@ -90,6 +94,8 @@ export const usePizzaStore = defineStore("pizzaStore", {
 
     pizzaAddQuantityInStore(pizza) {
       for (let i = 0; i < this.pizzasInCart.length; i++) {
+        console.log("pizzasInCart", this.pizzasInCart);
+        console.log("pizza", pizza);
         if (this.pizzasInCart[i]._id === pizza._id) {
           this.pizzasInCart[i].quantity++;
           this.count++;

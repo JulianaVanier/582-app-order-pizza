@@ -6,7 +6,6 @@
   <div class="box-all-ingredients">
     <IngredientList></IngredientList>
   </div>
-  {{ $route.params }}
 </template>
 
 <script>

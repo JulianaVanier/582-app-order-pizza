@@ -57,24 +57,26 @@
           <p>Item total: ${{ totalPrice }}</p>
         </div>
         <div class="total-price" v-else>
-          <p v-if="totalPriceCustom === pizza.priceSelected">
-            Item total: $
-            {{
+          <!-- <p v-if="totalPriceCustom === pizza.priceSelected"> -->
+          <!-- <p v-if="pizza.ingredient[0] == null">
+            Item total: $ {{ pizza.priceSelected  }} -->
+          <!-- {{
               pizzaStore.calcTotalPricePizzaCustom(
-                pizza._id,
-                this.ingredientStore.gettotalPriceIngredientAdded
+                pizza
+                // this.ingredientStore.gettotalPriceIngredientAdded
               )
-            }}
-            <!-- {{
+            }} -->
+          <!-- {{
               totalPriceCustom + ingredientStore.gettotalPriceIngredientAdded
             }} -->
-          </p>
-          <p v-else>
+          <!-- </p> -->
+          <!-- <p v-else> -->
+          <p>
             Item total: $
             {{
               pizzaStore.calcTotalPricePizzaCustom(
-                pizza._id,
-                this.ingredientStore.gettotalPriceIngredientAdded
+                pizza
+                // this.ingredientStore.gettotalPriceIngredientAdded
               )
             }}
           </p>

@@ -251,6 +251,43 @@ export default {
       margin: 5px 0;
     }
   }
+  .box-total-price {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+    .total-price {
+      width: 300px;
+      height: 100%;
+      border: 1px solid #ccc;
+      margin: 10px;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      border-radius: 8px;
+      background-color: #f8fbfe;
+      .total-price-title {
+        font-size: 20px;
+        font-weight: bold;
+      }
+      .total-price-value {
+        font-size: 25px;
+        font-weight: bold;
+      }
+    }
+    .box-btn-checkout {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px 0;
+    }
+  }
 }
 
 // Style for ingredient
@@ -358,6 +395,7 @@ export default {
     }
   }
 }
+
 nav {
   padding: 30px;
 

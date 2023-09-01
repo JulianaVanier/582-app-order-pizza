@@ -1,8 +1,6 @@
 <template>
   <HeaderApp />
   <MenuPizza />
-  <!-- <HeaderApp></HeaderApp>
-  <MenuPizza></MenuPizza> -->
 </template>
 
 <script>

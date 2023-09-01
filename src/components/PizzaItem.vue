@@ -57,20 +57,6 @@
           <p>Item total: ${{ totalPrice }}</p>
         </div>
         <div class="total-price" v-else>
-          <!-- <p v-if="totalPriceCustom === pizza.priceSelected"> -->
-          <!-- <p v-if="pizza.ingredient[0] == null">
-            Item total: $ {{ pizza.priceSelected  }} -->
-          <!-- {{
-              pizzaStore.calcTotalPricePizzaCustom(
-                pizza
-                // this.ingredientStore.gettotalPriceIngredientAdded
-              )
-            }} -->
-          <!-- {{
-              totalPriceCustom + ingredientStore.gettotalPriceIngredientAdded
-            }} -->
-          <!-- </p> -->
-          <!-- <p v-else> -->
           <p>
             Item total: $
             {{
@@ -114,7 +100,8 @@
       <!-- --------------------------------------------------------------------------- -->
 
       <!-- Display value size selected -->
-      <p>{{ selectedSizePrice }}</p>
+      <p class="price-size" v-if="selectedSizePrice === null">Select a size</p>
+      <p class="price-size" v-else>${{ selectedSizePrice }}</p>
       <!-- --------------------------------------------------------------------------- -->
 
       <!-- Button add to cart in Menu List -->

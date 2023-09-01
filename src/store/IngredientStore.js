@@ -45,6 +45,8 @@ export const useIngredientStore = defineStore("ingredientStore", {
 
           // pizzaCustomWithIngredient.ingredient.splice(i, 1);
           this.totalPriceIngredientAdded -= ingredient.price;
+
+          // this.totalPriceIngredientAdded.toFixed(2);
           console.log(
             "preco total depois remover",
             this.totalPriceIngredientAdded
@@ -56,6 +58,8 @@ export const useIngredientStore = defineStore("ingredientStore", {
 
       pizzaCustomWithIngredient.ingredient.push(ingredient);
       this.totalPriceIngredientAdded += ingredient.price;
+
+      // this.totalPriceIngredientAdded.toFixed(2);
       this.ingredientsAdded.push(ingredient._id);
     },
 

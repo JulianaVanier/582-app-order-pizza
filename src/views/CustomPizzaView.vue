@@ -6,7 +6,9 @@
     :key="pizzaItemCustomize.id"
     :pizza="pizzaItemCustomize"
   ></PizzaItem>
-  <IngredientList></IngredientList>
+  <div class="box-all-ingredients">
+    <IngredientList></IngredientList>
+  </div>
 </template>
 
 <script>

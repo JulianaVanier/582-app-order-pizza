@@ -110,7 +110,7 @@
       <!-- --------------------------------------------------------------------------- -->
 
       <!-- Display value size selected -->
-      <p>${{ selectedSizePrice }}</p>
+      <p>{{ selectedSizePrice }}</p>
       <!-- --------------------------------------------------------------------------- -->
 
       <div class="btn" @click="sendingToCart(pizza)">Add to cart</div>

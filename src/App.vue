@@ -210,7 +210,7 @@ export default {
   width: fit-content;
   margin: auto;
   h2 {
-    padding: 10px 0;
+    margin-bottom: 10px;
     font-family: "Poppins", sans-serif;
   }
   p {
@@ -254,7 +254,11 @@ export default {
 }
 
 // Style for ingredient
-
+.box-all-ingredients {
+  width: 1200px;
+  height: 100%;
+  margin: auto;
+}
 .list-ingredients {
   width: 100%;
   height: 100%;

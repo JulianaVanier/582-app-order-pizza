@@ -11,7 +11,7 @@
   >
     <h3>{{ ingredient.title }}</h3>
     <img :src="ingredient.image" alt="Ingredient image" />
-    <p>{{ ingredient.price }}</p>
+    <p>$ {{ ingredient.price }}</p>
   </div>
 </template>
 

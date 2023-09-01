@@ -72,11 +72,11 @@ export const useIngredientStore = defineStore("ingredientStore", {
       console.log("bbbbbbbbbb", pizzaToCustomize);
     },
 
-    displayIngredientInPizza(ingredient) {
-      if (this.ingredientsAdded.includes(ingredient._id)) {
-        return true;
-      }
-      return false;
-    },
+    // displayIngredientInPizza(ingredient) {
+    //   if (this.ingredientsAdded.includes(ingredient._id)) {
+    //     return true;
+    //   }
+    //   return false;
+    // },
   },
 });

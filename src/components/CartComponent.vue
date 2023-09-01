@@ -2,7 +2,7 @@
   <section class="review-order">
     <div class="container">
       <PizzaItem
-        v-for="pizzaItemInCart in listPizzaSelected"
+        v-for="pizzaItemInCart in pizzaInCart"
         :key="pizzaItemInCart.id"
         :pizza="pizzaItemInCart"
       ></PizzaItem>
@@ -24,10 +24,10 @@ export default {
   setup() {
     const pizzaStore = usePizzaStore();
     const listOfPizzas = pizzaStore.getPizzas;
-    const listPizzaSelected = pizzaStore.getPizzasInCart;
+    const pizzaInCart = pizzaStore.getPizzasInCart;
 
     // pizzaStore.fetchPizza();
-    return { listPizzaSelected, listOfPizzas };
+    return { pizzaInCart, listOfPizzas };
   },
 };
 </script>

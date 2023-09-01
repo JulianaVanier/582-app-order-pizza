@@ -10,7 +10,7 @@
         <img
           v-for="ingredient in ingredientStore.getIngredients"
           :key="ingredient._id"
-          v-show="ingredientStore.displayIngredientInPizza(ingredient)"
+          v-show="displayIngredientInPizza(ingredient._id)"
           :src="ingredient.imageCustom"
           alt=""
           class="ingredient"
@@ -209,35 +209,24 @@ export default {
         this.selectedSize
       );
       console.log("pizza", pizza);
-      //       {
-      //     "_id": "64e2c45e2c41f4d99ac2cd14",
-      //     "customize": true,
-      //     "title": "Create your owm",
-      //     "description": "Custom pizza",
-      //     "sizeSelected": "small",
-      //     "priceSelected": 8.99,
-      //     "image": "/img/base-pizza.webp",
-      //     "ingredient": [
-      //         {
-      //             "_id": "64e904ad752a93342434fcc9",
-      //             "title": "Mushrooms",
-      //             "price": 2.39,
-      //             "image": "/img/mushrooms.avif",
-      //             "imageCustom": "/img/mushrooms-pizza.webp"
-      //         },
-      //         {
-      //             "_id": "64e90465752a93342434fcc8",
-      //             "title": "Red Onions",
-      //             "price": 1.99,
-      //             "image": "/img/red-onions.avif",
-      //             "imageCustom": "/img/red-onions-pizza.png"
-      //         }
-      //     ],
-      //     "quantity": 1
-      // }
+
       this.$router.push("/cart/" + pizza._id);
     },
+    //https://stackoverflow.com/questions/56303878/vue-js-cant-access-to-router-parameters-from-computed-property
+    displayIngredientInPizza: function (ingredientId) {
+      console.log("ID INNGREDIENT", ingredientId);
+      console.log("PIZZAAAAA", this.pizza.ingredient);
+      for (let i = 0; i < this.pizza.ingredient.length; i++) {
+        // console.log("TEST 1 ", typeof this.pizzaToCustomize[i].id);
+        // console.log("TEST 2 ", typeof this.$route.params.id);
+        if (this.pizza.ingredient[i]._id == ingredientId) {
+          return true;
+        }
+      }
+      return false;
+    },
   },
+
   created() {
     this.totalPrice = this.pizzaStore.calcTotalPricePizzaInCart(this.pizza._id);
     this.totalPriceCustom = this.pizzaStore.calcTotalPricePizzaCustom(

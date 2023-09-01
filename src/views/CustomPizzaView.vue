@@ -1,14 +1,12 @@
 <template>
   <!-- {{ pizzaToCustom }} -->
   <TopBarCart></TopBarCart>
-  <PizzaItem
-    v-for="pizzaItemCustomize in pizzaToCustomize"
-    :key="pizzaItemCustomize.id"
-    :pizza="pizzaItemCustomize"
-  ></PizzaItem>
+
+  <PizzaItem :pizza="getPizzaCustomUsingParams"> </PizzaItem>
   <div class="box-all-ingredients">
     <IngredientList></IngredientList>
   </div>
+  {{ $route.params }}
 </template>
 
 <script>
@@ -31,16 +29,21 @@ export default {
     // pizzaStore.fetchPizza();
     return { pizzaToCustomize };
   },
-  // computed: {
-  //   pizzaToCustom() {
-  //     for (let pizza of this.pizzaStore.getPizzas) {
-  //       if (this.$router.params.pizza._id === pizza._id) {
-  //         return pizza;
-  //       }
-  //     }
-  //     return null;
-  //   },
-  // },
+  computed: {
+    //https://stackoverflow.com/questions/56303878/vue-js-cant-access-to-router-parameters-from-computed-property
+    getPizzaCustomUsingParams: function () {
+      // console.log("ROUTER", this.$route.params.id);
+      console.log("AQUI", this.pizzaToCustomize);
+      for (let i = 0; i < this.pizzaToCustomize.length; i++) {
+        // console.log("TEST 1 ", typeof this.pizzaToCustomize[i].id);
+        // console.log("TEST 2 ", typeof this.$route.params.id);
+        if (this.pizzaToCustomize[i].id == this.$route.params.id) {
+          return this.pizzaToCustomize[i];
+        }
+      }
+      return [];
+    },
+  },
 };
 </script>
 

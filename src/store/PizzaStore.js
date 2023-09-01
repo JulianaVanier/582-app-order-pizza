@@ -19,13 +19,15 @@ export const usePizzaStore = defineStore("pizzaStore", {
     },
     addPizzaToCart(pizza, price, size) {
       // clean the array of customized pizzas
-      if (this.pizzaCustomized !== null) {
-        this.pizzaCustomized = [];
-      }
+      // if (this.pizzaCustomized !== null) {
+      //   this.pizzaCustomized = [];
+      // }
 
       if (pizza.custom === true) {
         var pizzaToCustomize = {
           _id: pizza._id,
+          id: Date.now(),
+          //https://dev.to/rahmanfadhil/how-to-generate-unique-id-in-javascript-1b13
           customize: pizza.custom,
           title: pizza.title,
           description: pizza.description,
@@ -36,8 +38,9 @@ export const usePizzaStore = defineStore("pizzaStore", {
           quantity: 1,
         };
         this.pizzaCustomized.push(pizzaToCustomize);
-        console.log("pizza to customize", this.pizzaCustomized);
-        return;
+        console.log("pizza to customize", pizzaToCustomize.id);
+
+        return pizzaToCustomize.id;
       }
 
       // if the same pizza with the same size is added again, it doesn't print a new pizza,
@@ -70,7 +73,7 @@ export const usePizzaStore = defineStore("pizzaStore", {
 
     addCustomToCart(pizza) {
       this.pizzasInCart.push(pizza);
-      this.pizzaCustomized = [];
+      // this.pizzaCustomized = [];
     },
 
     removePizzaFromCart(pizza) {

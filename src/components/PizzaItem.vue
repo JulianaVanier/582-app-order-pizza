@@ -4,7 +4,7 @@
     <div class="pizza-image">
       <img :src="pizza.image" alt="Pizza image" class="img-pizza-main" />
       <!-- --------------------------------------------------------------------------- -->
-
+      <!-- CUSTOMIZE -->
       <!-- Looping to display ingredients in custom pizza -->
       <div class="display-ing" v-if="pizza.customize === true">
         <img
@@ -156,14 +156,15 @@ export default {
       this.selectedSize = size;
     },
     sendingToCart(pizza) {
-      this.pizzaStore.addPizzaToCart(
+      var idPizza = this.pizzaStore.addPizzaToCart(
         pizza,
         this.selectedSizePrice,
         this.selectedSize
       );
       this.selectSize = false;
+      console.log("idPizza", idPizza);
       if (pizza.custom === true) {
-        this.$router.push("/customize/" + pizza._id);
+        this.$router.push("/customize/" + idPizza);
       } else {
         this.$router.push("/cart/" + pizza._id);
       }

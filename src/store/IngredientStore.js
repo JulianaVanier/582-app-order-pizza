@@ -27,8 +27,16 @@ export const useIngredientStore = defineStore("ingredientStore", {
       this.ingredients.push(ingredient);
     },
 
-    toggleIngredient(ingredient, pizzaCustomized) {
-      var pizzaCustomWithIngredient = pizzaCustomized[0];
+    toggleIngredient(ingredient, pizzaId, pizzaToCustomize) {
+      var pizzaCustomWithIngredient = null;
+      for (let i = 0; i < pizzaToCustomize.length; i++) {
+        console.log("TEST 1 ", pizzaToCustomize[i].id);
+        console.log("TEST 2 ", pizzaId);
+        if (pizzaToCustomize[i].id == pizzaId) {
+          pizzaCustomWithIngredient = pizzaToCustomize[i];
+        }
+      }
+      console.log("para ver o que e", pizzaCustomWithIngredient);
 
       for (let i = 0; i < pizzaCustomWithIngredient.ingredient.length; i++) {
         console.log("para ver o objeto", pizzaCustomWithIngredient.ingredient);
@@ -61,6 +69,7 @@ export const useIngredientStore = defineStore("ingredientStore", {
 
       // this.totalPriceIngredientAdded.toFixed(2);
       this.ingredientsAdded.push(ingredient._id);
+      console.log("bbbbbbbbbb", pizzaToCustomize);
     },
 
     displayIngredientInPizza(ingredient) {

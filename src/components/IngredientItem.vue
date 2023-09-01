@@ -5,7 +5,8 @@
     @click="
       ingredientStore.toggleIngredient(
         ingredient,
-        pizzaStore.getPizzaCustomized
+        $route.params.id,
+        pizzaToCustomize
       )
     "
   >
@@ -29,7 +30,8 @@ export default {
   setup() {
     const ingredientStore = useIngredientStore();
     const pizzaStore = usePizzaStore();
-    return { ingredientStore, pizzaStore };
+    const pizzaToCustomize = pizzaStore.getPizzaCustomized;
+    return { ingredientStore, pizzaStore, pizzaToCustomize };
   },
   methods: {
     // toggleIngredientPizza(ingredient) {

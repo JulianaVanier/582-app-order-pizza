@@ -225,6 +225,20 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+  .box-title-checkout {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+    .title {
+      h1 {
+        font-size: 50px;
+        font-weight: bold;
+      }
+    }
+  }
 
   .box-menu-pizza {
     width: 300px;
@@ -290,10 +304,28 @@ export default {
   }
 }
 
+.box-title-custom {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+  .title {
+    h1 {
+      font-size: 50px;
+      font-weight: bold;
+    }
+  }
+}
+
 // Style for ingredient
 .box-all-ingredients {
-  width: 1200px;
+  width: 80%;
   height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin: auto;
 }
 .list-ingredients {

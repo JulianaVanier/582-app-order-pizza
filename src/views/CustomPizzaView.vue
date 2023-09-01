@@ -1,7 +1,11 @@
 <template>
   <!-- {{ pizzaToCustom }} -->
   <TopBarCart></TopBarCart>
-
+  <div class="box-title-custom">
+    <div class="title">
+      <h1>Customize</h1>
+    </div>
+  </div>
   <PizzaItem :pizza="getPizzaCustomUsingParams"> </PizzaItem>
   <div class="box-all-ingredients">
     <IngredientList></IngredientList>

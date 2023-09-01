@@ -1,6 +1,11 @@
 <template>
   <section class="review-order">
     <div class="container">
+      <div class="box-title-checkout">
+        <div class="title">
+          <h1>CHECKOUT</h1>
+        </div>
+      </div>
       <PizzaItem
         v-for="pizzaItemInCart in pizzaInCart"
         :key="pizzaItemInCart.id"
@@ -10,9 +15,9 @@
       {{ listPizzaSelected }} -->
       <div class="box-total-price">
         <div class="total-price">
-          <div class="total-price-title">Total</div>
+          <div class="total-price-title">Total:</div>
           <div class="total-price-value">
-            {{ pizzaStore.getTotalPriceCart() }}
+            ${{ pizzaStore.getTotalPriceCart() }}
             <!-- {{ pizzaStore.getTotalPriceCart }} -->
           </div>
         </div>

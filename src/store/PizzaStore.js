@@ -138,7 +138,7 @@ export const usePizzaStore = defineStore("pizzaStore", {
             this.pizzasInCart[i].priceSelected * this.pizzasInCart[i].quantity;
         }
       }
-      return totalPriceCustom;
+      return totalPriceCustom.toFixed(2);
       // for (let i = 0; i < this.pizzaCustomized.length; i++) {
       //   if (this.pizzaCustomized[i]._id === id) {
       //     totalPriceCustom =
@@ -172,9 +172,10 @@ export const usePizzaStore = defineStore("pizzaStore", {
       console.log("HELLO", this.pizzasInCart);
       for (let i = 0; i < this.pizzasInCart.length; i++) {
         console.log("HELLO 2", this.pizzasInCart[i]);
-        totalPrice += this.pizzasInCart[i].priceSelected;
+        totalPrice +=
+          this.pizzasInCart[i].priceSelected * this.pizzasInCart[i].quantity;
       }
-      return totalPrice;
+      return totalPrice.toFixed(2);
     },
   },
 });

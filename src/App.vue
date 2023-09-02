@@ -24,12 +24,16 @@ export default {
 }
 
 .container {
-  width: 80%;
+  width: 90%;
+  max-width: 1000px;
+  // margin: 0 auto;
+  // width: 1000px;
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  margin: auto;
 }
 .cart-btn {
   width: 50px;
@@ -74,7 +78,7 @@ export default {
   justify-content: center;
   align-items: center;
   .box-banner-top {
-    width: 80%;
+    width: 100%;
     height: 100%;
     display: flex;
     justify-content: center;
@@ -95,7 +99,9 @@ export default {
   .box-menu-pizza {
     width: 300px;
     height: 450px;
-    border: 1px solid #ccc;
+    // border: 1px solid #ccc;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+      rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
     margin: 10px;
     // padding: 10px;
     display: flex;
@@ -115,9 +121,13 @@ export default {
       margin: 10px 0;
     }
     p {
-      margin: 5px 0;
+      margin: 5px auto;
       font-family: "Poppins", sans-serif;
       width: 90%;
+    }
+    .price-size {
+      font-size: 20px;
+      font-weight: bold;
     }
   }
 }
@@ -133,7 +143,7 @@ export default {
   align-items: center;
   cursor: pointer;
   border-radius: 8px;
-  margin-top: 15px;
+  margin: 15px 0;
 }
 .select-size {
   background-color: #eeeded;
@@ -176,6 +186,51 @@ export default {
     width: 50%;
     margin: auto;
   }
+}
+// Style Preview Orders
+.box-btn-previewOrder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .btn-previewOrder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .btn {
+      width: 300px;
+      height: 100%;
+      padding: 10px 40px;
+      background-color: #bd2f19;
+      color: #fff;
+      font-weight: bold;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      border-radius: 8px;
+      margin-top: 15px;
+      letter-spacing: 1px;
+    }
+  }
+  // .btn {
+  //   width: 100%;
+  //   height: 100%;
+  //   padding: 10px 40px;
+  //   background-color: #ff2401;
+  //   color: #fff;
+  //   font-weight: bold;
+  //   display: flex;
+  //   justify-content: center;
+  //   align-items: center;
+  //   cursor: pointer;
+  //   border-radius: 8px;
+  //   margin-top: 15px;
+  // }
 }
 // Style for cart top
 .top {
@@ -244,8 +299,10 @@ export default {
   .box-menu-pizza {
     width: 300px;
     height: 450px;
-    border: 1px solid #ccc;
-    margin: 10px;
+    // border: 1px solid #ccc;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+      rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+    margin: 16px;
     // padding: 10px;
     display: flex;
     flex-direction: column;
@@ -264,6 +321,10 @@ export default {
     }
     p {
       margin: 5px 0;
+      width: 90%;
+    }
+    div:nth-child(4) {
+      width: 100%;
     }
   }
   .box-total-price {
@@ -369,6 +430,8 @@ export default {
   position: relative;
   // width: 300px;
   // height: 340px;
+  margin: auto;
+  width: fit-content;
 }
 
 // Style for ingredients
@@ -423,7 +486,7 @@ export default {
   .total-price {
     p {
       margin-top: 10px;
-      font-size: 25px;
+      font-size: 18px;
       font-weight: bold;
     }
   }

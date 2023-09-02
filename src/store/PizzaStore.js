@@ -188,6 +188,14 @@ export const usePizzaStore = defineStore("pizzaStore", {
       }
       return pizzasInOrder;
     },
+    addPreviewOrderInCart(previewOrders) {
+      console.log("order AQUIIII 5", this.previewOrders);
+      for (let i = 0; i < previewOrders.length; i++) {
+        this.pizzasInCart.push(previewOrders[i]);
+      }
+      console.log("pizzasInCarttttttttttttttttttttttttt", this.pizzasInCart);
+      return this.pizzasInCart;
+    },
 
     placeOrder(pizzaInCart) {
       console.log("PLACE ORDER", pizzaInCart);

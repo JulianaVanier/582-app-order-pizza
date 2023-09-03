@@ -1,14 +1,16 @@
 <template>
-  <TopBarCart></TopBarCart>
-  <div class="box-order-placed">
-    <div class="title">
-      <h1>Order Placed</h1>
-      Your order number is:
-      {{ $route.params.id }}
-      <br />
-      <br />
-      <br />
-      <img src="/img/delivery.gif" alt="Gif delivery" />
+  <div class="container">
+    <TopBarCart></TopBarCart>
+    <div class="box-order-placed">
+      <div class="title">
+        <h1>Order Placed</h1>
+        <p>
+          Your order number is: <span> {{ $route.params.id }}</span>
+        </p>
+        <div class="delivery-img">
+          <img src="/img/delivery.gif" alt="Gif delivery" />
+        </div>
+      </div>
     </div>
   </div>
 </template>

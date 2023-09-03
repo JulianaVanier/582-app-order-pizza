@@ -474,6 +474,48 @@ export default {
   // z-index: 50;
 }
 
+.box-input {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .input-order-number {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    label {
+      font-size: 20px;
+      font-weight: bold;
+      margin-right: 10px;
+    }
+    input {
+      width: 100px;
+      height: 40px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      padding: 0 10px;
+      font-size: 16px;
+      font-weight: bold;
+    }
+    .btn {
+      width: 100px;
+      height: 40px;
+      background-color: #ff2401;
+      color: #fff;
+      font-weight: bold;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      border-radius: 8px;
+      margin-left: 10px;
+    }
+  }
+}
+
 // Style for box quantity in
 .box-features-cart {
   .delete-pizza {
@@ -520,6 +562,39 @@ export default {
       margin-top: 10px;
       font-size: 18px;
       font-weight: bold;
+    }
+  }
+}
+.box-order-placed {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .title {
+    h1 {
+      font-size: 50px;
+      font-weight: bold;
+    }
+    p {
+      margin: 25px 0;
+      font-size: 22px;
+      font-weight: bold;
+    }
+    p span {
+      color: #bd2f19;
+      font-size: 30px;
+    }
+    .delivery-img {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      img {
+        width: 350px;
+        max-height: 100%;
+      }
     }
   }
 }

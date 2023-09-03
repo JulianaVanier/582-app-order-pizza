@@ -6,7 +6,12 @@
       <h1>Customize</h1>
     </div>
   </div>
-  <PizzaItem :pizza="getPizzaCustomUsingParams"> </PizzaItem>
+  <PizzaItem
+    :pizza="getPizzaCustomUsingParams"
+    :displayBtnCustom="false"
+    :displaySetQt="true"
+  >
+  </PizzaItem>
   <div class="box-all-ingredients">
     <IngredientList></IngredientList>
   </div>

@@ -10,6 +10,8 @@
         v-for="pizzaItemInCart in pizzaInCart"
         :key="pizzaItemInCart.id"
         :pizza="pizzaItemInCart"
+        :displayBtnCart="false"
+        :displaySetQt="true"
       ></PizzaItem>
       <!-- <h1>this is cart component:</h1>
       {{ listPizzaSelected }} -->
@@ -83,7 +85,7 @@ export default {
         })
         .then((data) => {
           console.log(data);
-          this.pizzaStore.cleanCartOrded();
+          this.pizzaStore.clearCart();
           this.$router.push("/orderplaced/" + orderToDb.orderNumber);
         });
     },

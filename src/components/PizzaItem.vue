@@ -6,7 +6,7 @@
       <!-- --------------------------------------------------------------------------- -->
       <!-- CUSTOMIZE -->
       <!-- Looping to display ingredients in custom pizza -->
-      <div class="display-ing" v-if="pizza.customize === true">
+      <div class="display-ing" v-if="pizza.custom === true">
         <img
           v-for="ingredient in ingredientStore.getIngredients"
           :key="ingredient._id"
@@ -23,7 +23,7 @@
     <!-- Button display pop up to select size of pizza -->
     <div
       class="btn"
-      v-if="pizza.custom === false"
+      v-if="pizza.custom === false && displayBtnCart === true"
       @click="selectSizeRun(pizza._id)"
     >
       Add to cart
@@ -31,14 +31,15 @@
     <!-- --------------------------------------------------------------------------- -->
 
     <!-- Condition to show customize button for Custom Pizza - go to new View -->
-    <div v-else-if="pizza.custom === true">
+
+    <div v-if="pizza.custom === true && this.$route.name === 'index'">
       <!-- <div class="btn" @click="sentToCustomize(pizza)">Customize</div> -->
       <div class="btn" @click="selectSizeRun(pizza._id)">Customize</div>
     </div>
     <!-- --------------------------------------------------------------------------- -->
 
     <!-- Condition to show options when pizza is in the cart -->
-    <div v-else>
+    <div v-if="displaySetQt === true">
       <div class="box-features-cart">
         <div class="delete-pizza" @click="removePizzaFromCart(pizza)">
           <img src="/img/delete-icon.png" alt="Icon button delete" />
@@ -53,7 +54,7 @@
             <img src="/img/remove.png" alt="Icon button remove" />
           </div>
         </div>
-        <div class="total-price" v-if="pizza.customize === false">
+        <div class="total-price" v-if="pizza.custom === false">
           <p>Item total: ${{ totalPrice }}</p>
         </div>
         <div class="total-price" v-else>
@@ -68,7 +69,13 @@
           </p>
 
           <!-- Button add to card in pizza custom in custom view -->
-          <div class="btn" @click="sendingCustomToCart(pizza)">Add to Cart</div>
+          <div
+            class="btn"
+            v-if="this.$route.name === 'customize'"
+            @click="sendingCustomToCart(pizza)"
+          >
+            Add to Cart
+          </div>
           <!-- --------------------------------------------------------------------------- -->
         </div>
       </div>
@@ -122,6 +129,15 @@ export default {
       type: Object,
       required: true,
     },
+    displayBtnCart: {
+      type: Boolean,
+    },
+    displayBtnCustom: {
+      type: Boolean,
+    },
+    displaySetQt: {
+      type: Boolean,
+    },
   },
   data() {
     return {
@@ -149,6 +165,7 @@ export default {
       this.selectedSize = size;
     },
     sendingToCart(pizza) {
+      console.log("ver o CUSTOM", pizza);
       var idPizza = this.pizzaStore.addPizzaToCart(
         pizza,
         this.selectedSizePrice,
@@ -167,7 +184,7 @@ export default {
       this.pizzaStore.removePizzaFromCart(pizza);
     },
     pizzaAddQuantity(pizza) {
-      if (pizza.customize === true) {
+      if (pizza.custom === true) {
         this.pizzaStore.pizzaCustomAddQuantityInStore(pizza);
         this.totalPriceCustom = this.pizzaStore.calcTotalPricePizzaCustom(
           pizza._id,
@@ -185,7 +202,7 @@ export default {
       }
       this.pizzaStore.pizzaRemoveQuantityInStore(pizza);
 
-      if (pizza.customize === true) {
+      if (pizza.custom === true) {
         this.totalPriceCustom = this.pizzaStore.calcTotalPricePizzaCustom(
           pizza._id,
           this.ingredientStore.gettotalPriceIngredientAdded

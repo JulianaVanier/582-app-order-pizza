@@ -24,6 +24,7 @@ export const useIngredientStore = defineStore("ingredientStore", {
   },
   actions: {
     addIngredient(ingredient) {
+      console.log("INGREDIENTEEEE", ingredient);
       this.ingredients.push(ingredient);
     },
 

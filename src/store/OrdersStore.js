@@ -14,7 +14,8 @@ export const useOrdersStore = defineStore("OrdersStore", {
   },
   actions: {
     addPreviewOrder(order) {
-      this.previewOrders.push(order);
+      this.pizzaStore.addPizzaToCart(order);
+      // this.previewOrders.push(order);
       console.log("previewOrders", this.previewOrders);
     },
   },

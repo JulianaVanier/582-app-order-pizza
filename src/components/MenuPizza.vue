@@ -16,6 +16,9 @@
         v-for="pizzaItem in pizzaStore.getPizzas"
         :key="pizzaItem.id"
         :pizza="pizzaItem"
+        :displayBtnCart="true"
+        :displaySetQt="false"
+        :displayBtnCustom="true"
       ></PizzaItem>
     </div>
   </section>

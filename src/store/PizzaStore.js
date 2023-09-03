@@ -27,7 +27,7 @@ export const usePizzaStore = defineStore("pizzaStore", {
           _id: pizza._id,
           id: Date.now(),
           //https://dev.to/rahmanfadhil/how-to-generate-unique-id-in-javascript-1b13
-          customize: pizza.custom,
+          custom: pizza.custom,
           title: pizza.title,
           description: pizza.description,
           sizeSelected: size,
@@ -38,6 +38,8 @@ export const usePizzaStore = defineStore("pizzaStore", {
         };
 
         this.pizzaCustomized.push(pizzaToCustomize);
+        console.log("PIZZA CUSTOM ADD", this.pizzaCustomized);
+
         // returning the id of the pizza to customize to function sendingToCart in PizzaItem
         return pizzaToCustomize.id;
       }
@@ -61,7 +63,7 @@ export const usePizzaStore = defineStore("pizzaStore", {
       var pizzaToCart = {
         _id: pizza._id,
         title: pizza.title,
-        customize: pizza.custom,
+        custom: pizza.custom,
         description: pizza.description,
         sizeSelected: size,
         priceSelected: price,
@@ -71,6 +73,7 @@ export const usePizzaStore = defineStore("pizzaStore", {
       };
       this.pizzasInCart.push(pizzaToCart);
       this.count++;
+      console.log("RESULTADOOOOOOOOOOOOOOO", this.pizzasInCart);
       // console.log("objeto to cart", this.pizzasInCart);
     },
     // -- --------------------------------------------------------------------------- --
@@ -151,7 +154,7 @@ export const usePizzaStore = defineStore("pizzaStore", {
     },
 
     pizzaRemoveQuantityInStore(pizza) {
-      if (pizza.customize === true) {
+      if (pizza.custom === true) {
         for (let i = 0; i < this.pizzaCustomized.length; i++) {
           if (this.pizzaCustomized[i]._id === pizza._id) {
             this.pizzaCustomized[i].quantity--;
@@ -169,9 +172,9 @@ export const usePizzaStore = defineStore("pizzaStore", {
     },
     getTotalPriceCart() {
       var totalPrice = 0.0;
-      console.log("HELLO", this.pizzasInCart);
+      // console.log("HELLO", this.pizzasInCart);
       for (let i = 0; i < this.pizzasInCart.length; i++) {
-        console.log("HELLO 2", this.pizzasInCart[i]);
+        // console.log("HELLO 2", this.pizzasInCart[i]);
         totalPrice +=
           this.pizzasInCart[i].priceSelected * this.pizzasInCart[i].quantity;
       }
@@ -194,7 +197,7 @@ export const usePizzaStore = defineStore("pizzaStore", {
         var reCreatingPreviewOrder = {
           _id: previewOrders[i]._id,
           title: previewOrders[i].title,
-          customize: previewOrders[i].customize,
+          custom: previewOrders[i].custom,
           description: previewOrders[i].description,
           sizeSelected: previewOrders[i].sizeSelected,
           priceSelected: previewOrders[i].priceSelected,
@@ -214,7 +217,7 @@ export const usePizzaStore = defineStore("pizzaStore", {
       console.log("pizzasInCarttttttttttttttttttttttttt", this.pizzasInCart);
       return this.pizzasInCart;
     },
-    cleanCartOrded() {
+    clearCart() {
       this.pizzasInCart = [];
       this.count = 0;
     },

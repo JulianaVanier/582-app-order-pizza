@@ -108,7 +108,7 @@ export const usePizzaStore = defineStore("pizzaStore", {
     },
     pizzaCustomAddQuantityInStore(pizza) {
       for (let i = 0; i < this.pizzaCustomized.length; i++) {
-        if (this.pizzaCustomized[i]._id === pizza._id) {
+        if (this.pizzaCustomized[i].id === pizza.id) {
           this.pizzaCustomized[i].quantity++;
           this.count++;
         }
@@ -126,22 +126,47 @@ export const usePizzaStore = defineStore("pizzaStore", {
       return totalPrice.toFixed(2);
     },
     calcTotalPricePizzaCustom(pizza) {
+      var totalPriceCustom = 0.0;
+      for (let i = 0; i < this.pizzaCustomized.length; i++) {
+        if (this.pizzaCustomized[i].id === pizza.id) {
+          totalPriceCustom =
+            this.pizzaCustomized[i].priceSelected *
+            this.pizzaCustomized[i].quantity;
+        }
+      }
+      return totalPriceCustom.toFixed(2);
       // console.log("CALCULANDO", pizza);
       // for (let i = 0; i < this.pizzaInCart.length; i++) {
       //   if (this.pizzasInCart[i].id === pizza.id || pizza.ingredient == null) {
       //     return pizza.priceSelected;
       //   }
       // }
+      // console.log("EU EU EU", pizza);
+      // if (pizza.ingredient === null) {
+      //   console.log("DEUUUUUUUUUUUU");
+      //   return pizza.priceSelected;
+      // } else {
+      //   var totalPriceCustom = 0.0;
 
-      var totalPriceCustom = 0.0;
+      //   for (let i = 0; i < this.pizzasInCart.length; i++) {
+      //     if (this.pizzasInCart[i].id === pizza.id) {
+      //       totalPriceCustom =
+      //         this.pizzasInCart[i].priceSelected *
+      //         this.pizzasInCart[i].quantity;
+      //     }
+      //   }
+      //   return totalPriceCustom.toFixed(2);
+      // }
 
-      for (let i = 0; i < this.pizzasInCart.length; i++) {
-        if (this.pizzasInCart[i].id === pizza.id) {
-          totalPriceCustom =
-            this.pizzasInCart[i].priceSelected * this.pizzasInCart[i].quantity;
-        }
-      }
-      return totalPriceCustom.toFixed(2);
+      // var totalPriceCustom = 0.0;
+
+      // for (let i = 0; i < this.pizzasInCart.length; i++) {
+      //   if (this.pizzasInCart[i].id === pizza.id) {
+      //     totalPriceCustom =
+      //       this.pizzasInCart[i].priceSelected * this.pizzasInCart[i].quantity;
+      //   }
+      // }
+      // return totalPriceCustom.toFixed(2);
       // for (let i = 0; i < this.pizzaCustomized.length; i++) {
       //   if (this.pizzaCustomized[i]._id === id) {
       //     totalPriceCustom =
@@ -156,7 +181,7 @@ export const usePizzaStore = defineStore("pizzaStore", {
     pizzaRemoveQuantityInStore(pizza) {
       if (pizza.custom === true) {
         for (let i = 0; i < this.pizzaCustomized.length; i++) {
-          if (this.pizzaCustomized[i]._id === pizza._id) {
+          if (this.pizzaCustomized[i].id === pizza.id) {
             this.pizzaCustomized[i].quantity--;
             this.count--;
           }

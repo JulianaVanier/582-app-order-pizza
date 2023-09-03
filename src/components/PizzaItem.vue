@@ -59,7 +59,7 @@
         </div>
         <div class="total-price" v-else>
           <p>
-            Item total: $
+            Item totalb: $
             {{
               pizzaStore.calcTotalPricePizzaCustom(
                 pizza

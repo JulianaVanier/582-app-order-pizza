@@ -376,21 +376,43 @@ export default {
   }
 }
 
-.box-title-custom {
+.top-customize-view {
   width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 30px;
-  .title {
-    h1 {
-      font-size: 50px;
-      font-weight: bold;
+  // height: 100px;
+  display: block;
+  // justify-content: space-between;
+  // align-items: center;
+  padding: 0 30px;
+  .back-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #eeeded;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    img {
+      width: 30px;
+      height: 30px;
+    }
+  }
+
+  .box-title-custom {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+    .title {
+      h1 {
+        font-size: 50px;
+        font-weight: bold;
+      }
     }
   }
 }
-
 // Style for ingredient
 .box-all-ingredients {
   width: 80%;

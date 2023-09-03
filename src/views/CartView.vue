@@ -1,6 +1,8 @@
 <template>
-  <TopBarCart></TopBarCart>
-  <CartComponent></CartComponent>
+  <div class="container">
+    <TopBarCart></TopBarCart>
+    <CartComponent></CartComponent>
+  </div>
 </template>
 
 <script>

@@ -1,19 +1,28 @@
 <template>
   <!-- {{ pizzaToCustom }} -->
-  <TopBarCart></TopBarCart>
-  <div class="box-title-custom">
-    <div class="title">
-      <h1>Customize</h1>
+  <!-- <TopBarCart></TopBarCart> -->
+  <div class="container">
+    <div class="top-customize-view">
+      <div class="back-btn">
+        <router-link to="/">
+          <img src="/img/back-icon.png" alt="Back icon" />
+        </router-link>
+      </div>
+      <div class="box-title-custom">
+        <div class="title">
+          <h1>Customize</h1>
+        </div>
+      </div>
     </div>
-  </div>
-  <PizzaItem
-    :pizza="getPizzaCustomUsingParams"
-    :displayBtnCustom="false"
-    :displaySetQt="true"
-  >
-  </PizzaItem>
-  <div class="box-all-ingredients">
-    <IngredientList></IngredientList>
+    <PizzaItem
+      :pizza="getPizzaCustomUsingParams"
+      :displayBtnCustom="false"
+      :displaySetQt="true"
+    >
+    </PizzaItem>
+    <div class="box-all-ingredients">
+      <IngredientList></IngredientList>
+    </div>
   </div>
 </template>
 
@@ -21,14 +30,14 @@
 import IngredientList from "@/components/IngredientList.vue";
 import { usePizzaStore } from "@/store/PizzaStore";
 import PizzaItem from "@/components/PizzaItem.vue";
-import TopBarCart from "@/components/TopBarCart.vue";
+// import TopBarCart from "@/components/TopBarCart.vue";
 
 export default {
   name: "CustomPizzaView",
   components: {
     IngredientList,
     PizzaItem,
-    TopBarCart,
+    // TopBarCart,
   },
   setup() {
     const pizzaStore = usePizzaStore();

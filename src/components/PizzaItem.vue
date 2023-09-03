@@ -18,7 +18,7 @@
       </div>
       <!-- --------------------------------------------------------------------------- -->
     </div>
-    <p>{{ pizza.description }}</p>
+    <p class="description">{{ pizza.description }}</p>
 
     <!-- Button display pop up to select size of pizza -->
     <div

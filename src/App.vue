@@ -24,7 +24,7 @@ export default {
 }
 
 .container {
-  width: 90%;
+  width: 100%;
   max-width: 1000px;
   // margin: 0 auto;
   // width: 1000px;
@@ -88,21 +88,28 @@ export default {
     }
   }
 }
-
+.display-cart-index {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 10px;
+}
 .menu-pizza {
   width: 100%;
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 60px 0;
+  margin-bottom: 60px;
+  // padding: 60px 0;
   .box-menu-pizza {
     width: 300px;
-    height: 450px;
+    height: 400px;
     // border: 1px solid #ccc;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
       rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
-    margin: 10px;
+    margin-top: 50px;
     // padding: 10px;
     display: flex;
     flex-direction: column;
@@ -124,10 +131,14 @@ export default {
       margin: 5px auto;
       font-family: "Poppins", sans-serif;
       width: 90%;
+      font-size: 11px;
     }
     .price-size {
-      font-size: 20px;
+      font-size: 14px;
       font-weight: bold;
+    }
+    .description {
+      font-size: 14px;
     }
   }
 }
@@ -148,14 +159,12 @@ export default {
 .select-size {
   background-color: #eeeded;
   position: absolute;
-  top: 80%;
-  left: 40%;
-  width: 35rem;
+  top: 0%;
+  left: 0%;
+  width: 19rem;
   max-height: 100%;
-  // border: #acafb3 solid 1px;
   padding: 40px 0;
   border-radius: 8px;
-  // display: flex;
   z-index: 1;
   .select-size-box {
     width: 100%;
@@ -164,12 +173,12 @@ export default {
     justify-content: center;
     align-items: center;
     background-color: #eeeded;
-    padding: 20px 0;
+    padding: 10px 0;
     .size {
       width: 100px;
       height: 100px;
       border: 1px solid #ccc;
-      margin: 10px;
+      margin: 0px 5px;
       padding: 10px;
       display: flex;
       flex-direction: column;
@@ -177,8 +186,8 @@ export default {
       align-items: center;
       border-radius: 8px;
       img {
-        width: 50px;
-        height: 50px;
+        width: 30px;
+        height: 30px;
       }
     }
   }
@@ -322,6 +331,7 @@ export default {
     p {
       margin: 5px 0;
       width: 90%;
+      font-size: 11px;
     }
     div:nth-child(4) {
       width: 100%;
@@ -492,16 +502,64 @@ export default {
   }
 }
 
-nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  // .box-menu-pizza {
+  //   width: 300px;
+  // }
+  // Large devices (desktops, 992px and up)
+  .select-size {
+    background-color: #eeeded;
+    position: absolute;
+    top: 0%;
+    left: -45%;
+    width: 35rem;
+    max-height: 100%;
+    // border: #acafb3 solid 1px;
+    padding: 40px 0;
+    border-radius: 8px;
+    // display: flex;
+    z-index: 1;
+    .select-size-box {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #eeeded;
+      padding: 20px 0;
+      .size {
+        width: 100px;
+        height: 100px;
+        border: 1px solid #ccc;
+        margin: 10px;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 8px;
+        img {
+          width: 50px;
+          height: 50px;
+        }
+      }
     }
+    .btn {
+      width: 60%;
+      margin: auto;
+    }
+  }
+  @media (min-width: 992px) {
+    // .menu-pizza {
+    //   .box-menu-pizza p {
+    //     font-size: 14px;
+    //     .price-size {
+    //       font-size: 120px;
+    //       font-weight: bold;
+    //     }
+    //   }
+    // }
   }
 }
 </style>

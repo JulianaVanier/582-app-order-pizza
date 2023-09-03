@@ -1,14 +1,17 @@
 <template>
-  <div class="cart-btn">
-    <router-link to="/cart/1">
-      <div class="cart">
-        <img src="/img/cart-icon.png" alt="Cart icon" />
-        <!-- <p>{{ itemsCart }}</p> -->
-        <div class="qt-cart">{{ pizzaStore.count }}</div>
+  <div class="container">
+    <div class="display-cart-index">
+      <div class="cart-btn">
+        <router-link to="/cart/1">
+          <div class="cart">
+            <img src="/img/cart-icon.png" alt="Cart icon" />
+            <!-- <p>{{ itemsCart }}</p> -->
+            <div class="qt-cart">{{ pizzaStore.count }}</div>
+          </div>
+        </router-link>
       </div>
-    </router-link>
+    </div>
   </div>
-
   <!-- <div class="cart-qt">{{ pizzaStore.count }}</div> -->
   <section class="menu-pizza">
     <div class="container">

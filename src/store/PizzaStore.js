@@ -189,50 +189,34 @@ export const usePizzaStore = defineStore("pizzaStore", {
       return pizzasInOrder;
     },
     addPreviewOrderInCart(previewOrders) {
-      console.log("order AQUIIII 5", this.previewOrders);
+      this.pizzasInCart = [];
       for (let i = 0; i < previewOrders.length; i++) {
-        this.pizzasInCart.push(previewOrders[i]);
+        var reCreatingPreviewOrder = {
+          _id: previewOrders[i]._id,
+          title: previewOrders[i].title,
+          customize: previewOrders[i].customize,
+          description: previewOrders[i].description,
+          sizeSelected: previewOrders[i].sizeSelected,
+          priceSelected: previewOrders[i].priceSelected,
+          image: previewOrders[i].image,
+          ingredient: previewOrders[i].ingredient,
+          quantity: previewOrders[i].quantity,
+        };
       }
+
+      console.log("order AQUIIII 5", previewOrders);
+      console.log("order AQUIIII LENGHT", previewOrders.length);
+      console.log("CARTTTTTTTTTT", this.pizzasInCart);
+      this.pizzasInCart.push(reCreatingPreviewOrder);
+      // for (let i = 0; i < previewOrders.length; i++) {
+      //   this.pizzasInCart.push(previewOrders[i]);
+      // }
       console.log("pizzasInCarttttttttttttttttttttttttt", this.pizzasInCart);
       return this.pizzasInCart;
     },
-
-    placeOrder(pizzaInCart) {
-      console.log("PLACE ORDER", pizzaInCart);
-
-      var orderToDb = {
-        _id: null,
-        pizza: this.distributionPizzasinOrder(),
-        // [
-        //   {
-        //     id: pizzaInCart._id,
-        //     size: pizzaInCart.sizeSelected,
-        //     quantity: pizzaInCart.quantity,
-        //     price: pizzaInCart.priceSelected,
-        //     ingredient: pizzaInCart.ingredient,
-        //   },
-        // ],
-        date: new Date().toISOString(),
-        totalprice: this.getTotalPriceCart(),
-      };
-
-      console.log("ORDER TO DB", orderToDb);
-
-      fetch("http://localhost:3000/placeorder", {
-        method: "POST",
-        body: JSON.stringify(orderToDb),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      })
-        .then((response) => {
-          console.log(response);
-          alert("Order placed successfully!");
-          return response.text();
-        })
-        .then((data) => {
-          console.log(data);
-        });
+    cleanCartOrded() {
+      this.pizzasInCart = [];
+      this.count = 0;
     },
   },
 });

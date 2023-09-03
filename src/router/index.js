@@ -4,6 +4,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import CartView from "../views/CartView.vue";
 import IndexView from "../views/IndexView.vue";
 import CustomPizzaView from "../views/CustomPizzaView.vue";
+import OrderPlacedView from "../views/OrderPlacedView.vue";
 
 const routes = [
   // {
@@ -43,6 +44,12 @@ const routes = [
     path: "/customize/:id",
     name: "customize",
     component: CustomPizzaView,
+    props: true,
+  },
+  {
+    path: "/orderplaced/:id",
+    name: "orderplaced",
+    component: OrderPlacedView,
     props: true,
   },
 ];

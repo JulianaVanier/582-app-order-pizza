@@ -13,8 +13,6 @@
         :displayBtnCart="false"
         :displaySetQt="true"
       ></PizzaItem>
-      <!-- <h1>this is cart component:</h1>
-      {{ listPizzaSelected }} -->
       <div class="box-total-price">
         <div class="total-price">
           <div class="total-price-title">Total:</div>
@@ -47,10 +45,8 @@ export default {
   },
   setup() {
     const pizzaStore = usePizzaStore();
-    // const listOfPizzas = pizzaStore.getPizzas;
     const pizzaInCart = pizzaStore.getPizzasInCart;
 
-    // pizzaStore.fetchPizza();
     return { pizzaStore, pizzaInCart };
   },
   methods: {
@@ -80,7 +76,6 @@ export default {
       })
         .then((response) => {
           console.log(response);
-          // alert("Order placed successfully!");
           return response.text();
         })
         .then((data) => {

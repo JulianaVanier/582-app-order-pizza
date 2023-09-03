@@ -1,5 +1,4 @@
 <template>
-  <!-- <div class="box-indredient" @click="toggleIngredientPizza(ingredient)"> -->
   <div
     class="box-indredient"
     @click="
@@ -32,12 +31,6 @@ export default {
     const pizzaStore = usePizzaStore();
     const pizzaToCustomize = pizzaStore.getPizzaCustomized;
     return { ingredientStore, pizzaStore, pizzaToCustomize };
-  },
-  methods: {
-    // toggleIngredientPizza(ingredient) {
-    //   console.log("AQUI TOGGLE");
-    //   this.ingredientStore.toggleIngredient(ingredient);
-    // },
   },
 };
 </script>

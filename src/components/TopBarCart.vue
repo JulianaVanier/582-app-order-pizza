@@ -8,7 +8,6 @@
     <div class="cart-btn">
       <div class="cart">
         <img src="/img/cart-icon.png" alt="Cart icon" />
-        <!-- <p>{{ itemsCart }}</p> -->
         <div class="qt-cart">{{ pizzaCart.count }}</div>
       </div>
     </div>

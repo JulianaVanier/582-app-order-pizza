@@ -1,7 +1,4 @@
 <template>
-  <!-- <nav>
-    <router-link to="/">Home</router-link>
-  </nav> -->
   <section class="banner-top">
     <div class="container">
       <div class="box-banner-top">

@@ -91,13 +91,6 @@ export const usePizzaStore = defineStore("pizzaStore", {
     },
 
     removePizzaFromCart(pizza) {
-      // if (pizza.customize === true) {
-      //   this.pizzaCustomized.splice(pizza, 1);
-      // } else {
-      //   this.pizzasInCart.splice(pizza, 1);
-      //   this.count--;
-      // }
-
       this.pizzasInCart.splice(pizza, 1);
       this.count--;
     },
@@ -176,9 +169,6 @@ export const usePizzaStore = defineStore("pizzaStore", {
       var pizzasInOrder = [];
       for (let i = 0; i < this.pizzasInCart.length; i++) {
         pizzasInOrder.push(this.pizzasInCart[i]);
-        // if (this.pizzasInCart[i].customize === false) {
-        //   pizzaInCart.push(this.pizzasInCart[i]);
-        // }
       }
       return pizzasInOrder;
     },

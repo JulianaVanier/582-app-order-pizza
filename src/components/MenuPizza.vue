@@ -5,14 +5,12 @@
         <router-link to="/cart/1">
           <div class="cart">
             <img src="/img/cart-icon.png" alt="Cart icon" />
-            <!-- <p>{{ itemsCart }}</p> -->
             <div class="qt-cart">{{ pizzaStore.count }}</div>
           </div>
         </router-link>
       </div>
     </div>
   </div>
-  <!-- <div class="cart-qt">{{ pizzaStore.count }}</div> -->
   <section class="menu-pizza">
     <div class="container">
       <PizzaItem
@@ -34,11 +32,6 @@ import { useIngredientStore } from "@/store/IngredientStore";
 
 export default {
   name: "RegularPizza",
-  data() {
-    //   return {
-    //     selectSize: false,
-    //   };
-  },
   components: {
     PizzaItem,
   },
@@ -46,7 +39,6 @@ export default {
     const pizzaStore = usePizzaStore();
     const ingredientStore = useIngredientStore();
 
-    // pizzaStore.fetchPizza();
     return { pizzaStore, ingredientStore };
   },
   created() {

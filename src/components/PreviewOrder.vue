@@ -1,5 +1,4 @@
 <template>
-  <!-- <BtnPreviewOrder :order="previewOrders"></BtnPreviewOrder> -->
   <div class="container">
     <div class="box-input">
       <div class="input-order-number">
@@ -13,7 +12,6 @@
 
 <script>
 import { useOrdersStore } from "@/store/OrdersStore";
-// import BtnPreviewOrder from "./BtnPreviewOrder.vue";
 import { usePizzaStore } from "@/store/PizzaStore";
 
 export default {

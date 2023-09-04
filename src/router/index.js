@@ -7,11 +7,6 @@ import CustomPizzaView from "../views/CustomPizzaView.vue";
 import OrderPlacedView from "../views/OrderPlacedView.vue";
 
 const routes = [
-  // {
-  //   path: "/",
-  //   name: "home",
-  //   component: HomeView,
-  // },
   {
     path: "/about",
     name: "about",
@@ -21,12 +16,6 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/AboutView.vue"),
   },
-  // {
-  //   path: "/checkout/:id",
-  //   name: "checkout",
-  //   component: CheckoutView,
-  //   // props: true,
-  // },
 
   {
     path: "/",

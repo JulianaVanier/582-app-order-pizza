@@ -48,7 +48,7 @@ export default {
                 pizza.sizeSelected
               );
             }
-
+            this.$router.push("/cart/" + pizza.id);
             console.log("order do FETCH", pizza);
           }
         });

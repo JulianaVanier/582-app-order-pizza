@@ -166,6 +166,23 @@ export default {
   padding: 40px 0;
   border-radius: 8px;
   z-index: 1;
+  .close-pop-up {
+    // position: absolute;
+    // top: 0;
+    // right: 0;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #eeeded;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    cursor: pointer;
+    img {
+      width: 20px;
+      height: 20px;
+    }
+  }
   .select-size-box {
     width: 100%;
     height: 100%;

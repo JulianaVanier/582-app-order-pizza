@@ -19,4 +19,3 @@ describe("IngredientItem.vue", () => {
     expect(wrapper.find("h3").text()).toBe("Tomato");
   });
 });
-

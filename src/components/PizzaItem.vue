@@ -84,7 +84,9 @@
 
     <!-- Popup to select size of pizza -->
     <div class="select-size" :class="[selectSize ? 'appears' : 'disappears']">
-      <p @click="selectSize = false">X</p>
+      <p class="close-pop-up" @click="selectSize = false">
+        <img src="/img/close.png" alt="Button to close" />
+      </p>
       <h3>Add Item</h3>
       <div class="select-size-box">
         <div class="size" @click="sizeSelected('small', pizza.size.small)">

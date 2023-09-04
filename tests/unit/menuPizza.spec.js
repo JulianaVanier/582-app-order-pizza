@@ -1,4 +1,3 @@
-
 // import { createTestingPinia } from '@pinia/testing';
 // import { mount } from '@vue/test-utils';
 // import { shallowMount } from "@vue/test-utils";
@@ -25,8 +24,6 @@
 //     },
 //     image: "pizza1.png",
 // };
-
-
 
 // store.addPizza(pizza);
 // expect(store.getPizzas).toHaveBeenCalledTimes(1)

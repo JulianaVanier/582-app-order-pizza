@@ -16,7 +16,6 @@
 //     );
 // });
 
-
 // // const store = usePizzaStore() // uses the testing pinia!
 
 // // const pizza = {
@@ -39,14 +38,13 @@
 
 // // expect(store.addPizzaToCart).toHaveBeenCalled();
 
-
 // describe("PizzaItem.vue", () => {
 //     // it("display Ingredient in Pizza when ingredient._id = true", () => {
-   
+
 //     // });
 
 //     // it("display Ingredient in Pizza when ingredient._id = false", () => {
-   
+
 //     // });
 //     // it("renders and display props tasks when passed", () => {
 //     //     const pizza = {
@@ -105,7 +103,6 @@
 //     //     });
 //     //     expect(wrapper.find(".btn").exists()).toBe(true);
 //     // });
-
 
 //     // it("renders props.pizza when passed", () => {
 //     //     const pizza = {

@@ -45,7 +45,9 @@ export default {
     this.pizzaStore.pizzas = [];
     this.ingredientStore.ingredientsAdded = [];
 
-    fetch("http://localhost:3000/pizza")
+    fetch(
+      "https://bookish-rotary-phone-j6j6g76r445255vv-3000.app.github.dev/pizza"
+    )
       .then((response) => response.json())
       .then((json) => {
         // console.log(json);

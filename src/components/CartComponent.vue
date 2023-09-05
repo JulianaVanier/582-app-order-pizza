@@ -67,13 +67,16 @@ export default {
 
       console.log("ORDER TO DB", orderToDb);
 
-      fetch("http://localhost:3000/placeorder", {
-        method: "POST",
-        body: JSON.stringify(orderToDb),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      })
+      fetch(
+        "https://bookish-rotary-phone-j6j6g76r445255vv-3000.app.github.dev/placeorder",
+        {
+          method: "POST",
+          body: JSON.stringify(orderToDb),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      )
         .then((response) => {
           console.log(response);
           return response.text();

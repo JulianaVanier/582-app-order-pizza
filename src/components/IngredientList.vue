@@ -26,7 +26,9 @@ export default {
   },
   created() {
     this.ingredientStore.ingredients = [];
-    fetch("http://localhost:3000/customizepizza")
+    fetch(
+      "https://bookish-rotary-phone-j6j6g76r445255vv-3000.app.github.dev/customizepizza"
+    )
       .then((response) => response.json())
       .then((json) => {
         for (let ingredient of json) {

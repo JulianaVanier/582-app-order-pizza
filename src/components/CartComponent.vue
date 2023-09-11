@@ -68,7 +68,11 @@ export default {
       console.log("ORDER TO DB", orderToDb);
 
       fetch(
+<<<<<<< HEAD
         "//juliana71.web582.com/web-framework/582-app-order-pizza/placeorder",
+=======
+        "https://bookish-rotary-phone-j6j6g76r445255vv-3000.app.github.dev/placeorder",
+>>>>>>> bf96e734e39c899e04c5f49c8533e6c8d7d71dec
         {
           method: "POST",
           body: JSON.stringify(orderToDb),

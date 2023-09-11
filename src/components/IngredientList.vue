@@ -27,7 +27,11 @@ export default {
   created() {
     this.ingredientStore.ingredients = [];
     fetch(
+<<<<<<< HEAD
       "//juliana71.web582.com/web-framework/582-app-order-pizza/customizepizza"
+=======
+      "https://bookish-rotary-phone-j6j6g76r445255vv-3000.app.github.dev/customizepizza"
+>>>>>>> bf96e734e39c899e04c5f49c8533e6c8d7d71dec
     )
       .then((response) => response.json())
       .then((json) => {

@@ -26,7 +26,9 @@ export default {
   },
   created() {
     this.ingredientStore.ingredients = [];
-    fetch("http://localhost:3000/customizepizza")
+    fetch(
+      "//juliana71.web582.com/web-framework/582-app-order-pizza/customizepizza"
+    )
       .then((response) => response.json())
       .then((json) => {
         for (let ingredient of json) {

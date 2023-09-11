@@ -32,7 +32,10 @@ export default {
     findOrderNumber() {
       console.log("para VER ORDERRRRRRRRR", this.orderNumber);
 
-      fetch("http://localhost:3000/previewOrder/" + this.orderNumber)
+      fetch(
+        "//juliana71.web582.com/web-framework/582-app-order-pizza/previewOrder/" +
+          this.orderNumber
+      )
         .then((response) => response.json())
         .then((json) => {
           this.pizzaStore.clearCart();

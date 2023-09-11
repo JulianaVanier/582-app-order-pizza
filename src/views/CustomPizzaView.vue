@@ -5,7 +5,10 @@
     <div class="top-customize-view">
       <div class="back-btn">
         <router-link to="/">
-          <img src="/img/back-icon.png" alt="Back icon" />
+          <img
+            src="/web-framework/582-app-order-pizza/img/back-icon.png"
+            alt="Back icon"
+          />
         </router-link>
       </div>
       <div class="box-title-custom">
@@ -50,7 +53,6 @@ export default {
     //https://stackoverflow.com/questions/56303878/vue-js-cant-access-to-router-parameters-from-computed-property
     getPizzaCustomUsingParams: function () {
       // console.log("ROUTER", this.$route.params.id);
-      console.log("AQUI", this.pizzaToCustomize);
       for (let i = 0; i < this.pizzaToCustomize.length; i++) {
         // console.log("TEST 1 ", typeof this.pizzaToCustomize[i].id);
         // console.log("TEST 2 ", typeof this.$route.params.id);

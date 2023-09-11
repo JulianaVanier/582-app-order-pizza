@@ -4,7 +4,10 @@
       <div class="cart-btn">
         <router-link to="/cart/1">
           <div class="cart">
-            <img src="/img/cart-icon.png" alt="Cart icon" />
+            <img
+              src="/web-framework/582-app-order-pizza/img/cart-icon.png"
+              alt="Cart icon"
+            />
             <div class="qt-cart">{{ pizzaStore.count }}</div>
           </div>
         </router-link>
@@ -45,7 +48,7 @@ export default {
     this.pizzaStore.pizzas = [];
     this.ingredientStore.ingredientsAdded = [];
 
-    fetch("http://localhost:3000/pizza")
+    fetch("//juliana71.web582.com/web-framework/582-app-order-pizza/pizza")
       .then((response) => response.json())
       .then((json) => {
         // console.log(json);

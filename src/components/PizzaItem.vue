@@ -42,16 +42,25 @@
     <div v-if="displaySetQt === true">
       <div class="box-features-cart">
         <div class="delete-pizza" @click="removePizzaFromCart(pizza)">
-          <img src="/img/delete-icon.png" alt="Icon button delete" />
+          <img
+            src="/web-framework/582-app-order-pizza/img/delete-icon.png"
+            alt="Icon button delete"
+          />
         </div>
 
         <div class="qt-order-item">
           <div class="qt-btn" @click="pizzaAddQuantity(pizza)">
-            <img src="/img/add.png" alt="Icon button add" />
+            <img
+              src="/web-framework/582-app-order-pizza/img/add.png"
+              alt="Icon button add"
+            />
           </div>
           <div class="qt-number">{{ pizza.quantity }}</div>
           <div class="qt-btn" @click="pizzaRemoveQuantity(pizza)">
-            <img src="/img/remove.png" alt="Icon button remove" />
+            <img
+              src="/web-framework/582-app-order-pizza/img/remove.png"
+              alt="Icon button remove"
+            />
           </div>
         </div>
         <div class="total-price" v-if="pizza.custom === false">
@@ -85,24 +94,39 @@
     <!-- Popup to select size of pizza -->
     <div class="select-size" :class="[selectSize ? 'appears' : 'disappears']">
       <p class="close-pop-up" @click="selectSize = false">
-        <img src="/img/close.png" alt="Button to close" />
+        <img
+          src="/web-framework/582-app-order-pizza/img/close.png"
+          alt="Button to close"
+        />
       </p>
       <h3>Add Item</h3>
       <div class="select-size-box">
         <div class="size" @click="sizeSelected('small', pizza.size.small)">
-          <img src="/img/pizza-icon.png" alt="Icon pizza" />
+          <img
+            src="/web-framework/582-app-order-pizza/img/pizza-icon.png"
+            alt="Icon pizza"
+          />
           <p>Small</p>
         </div>
         <div class="size" @click="sizeSelected('medium', pizza.size.medium)">
-          <img src="/img/pizza-icon.png" alt="Icon pizza" />
+          <img
+            src="/web-framework/582-app-order-pizza/img/pizza-icon.png"
+            alt="Icon pizza"
+          />
           <p>Medium</p>
         </div>
         <div class="size" @click="sizeSelected('large', pizza.size.large)">
-          <img src="/img/pizza-icon.png" alt="Icon pizza" />
+          <img
+            src="/web-framework/582-app-order-pizza/img/pizza-icon.png"
+            alt="Icon pizza"
+          />
           <p>Large</p>
         </div>
         <div class="size" @click="sizeSelected('xlarge', pizza.size.xlarge)">
-          <img src="/img/pizza-icon.png" alt="Icon pizza" />
+          <img
+            src="/web-framework/582-app-order-pizza/img/pizza-icon.png"
+            alt="Icon pizza"
+          />
           <p>X-Large</p>
         </div>
       </div>

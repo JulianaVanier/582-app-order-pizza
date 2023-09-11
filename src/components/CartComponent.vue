@@ -67,13 +67,16 @@ export default {
 
       console.log("ORDER TO DB", orderToDb);
 
-      fetch("http://localhost:3000/placeorder", {
-        method: "POST",
-        body: JSON.stringify(orderToDb),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      })
+      fetch(
+        "//juliana71.web582.com/web-framework/582-app-order-pizza/placeorder",
+        {
+          method: "POST",
+          body: JSON.stringify(orderToDb),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      )
         .then((response) => {
           console.log(response);
           return response.text();

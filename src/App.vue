@@ -615,6 +615,29 @@ export default {
     }
   }
 }
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .box-footer {
+    background-color: #eeeded;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .footer-text {
+      p {
+        font-size: 14px;
+      }
+    }
+  }
+}
 
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) {

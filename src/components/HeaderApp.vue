@@ -2,7 +2,10 @@
   <section class="banner-top">
     <div class="container">
       <div class="box-banner-top">
-        <img src="/img/banner-top.jpg" alt="banner top pizza" />
+        <img
+          src="/web-framework/582-app-order-pizza/img/banner-top.jpg"
+          alt="banner top pizza"
+        />
       </div>
     </div>
   </section>

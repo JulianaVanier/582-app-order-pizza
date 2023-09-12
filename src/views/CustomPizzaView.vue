@@ -17,12 +17,14 @@
         </div>
       </div>
     </div>
-    <PizzaItem
-      :pizza="getPizzaCustomUsingParams"
-      :displayBtnCustom="false"
-      :displaySetQt="true"
-    >
-    </PizzaItem>
+    <div class="pizza-custom">
+      <PizzaItem
+        :pizza="getPizzaCustomUsingParams"
+        :displayBtnCustom="false"
+        :displaySetQt="true"
+      >
+      </PizzaItem>
+    </div>
     <div class="box-all-ingredients">
       <IngredientList></IngredientList>
     </div>

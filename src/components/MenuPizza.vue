@@ -49,7 +49,7 @@ export default {
     this.ingredientStore.ingredientsAdded = [];
 
     fetch(
-      "https://bookish-rotary-phone-j6j6g76r445255vv-3000.app.github.dev/pizza"
+      "https://bookish-rotary-phone-j6j6g76r445255vv-3000.app.github.dev +/pizza"
     )
       .then((response) => response.json())
       .then((json) => {

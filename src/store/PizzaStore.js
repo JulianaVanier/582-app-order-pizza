@@ -45,7 +45,6 @@ export const usePizzaStore = defineStore("pizzaStore", {
         };
 
         this.pizzaCustomized.push(pizzaToCustomize);
-        console.log("PIZZA CUSTOM ADD", this.pizzaCustomized);
 
         // returning the id of the pizza to customize to function sendingToCart in PizzaItem
         return pizzaToCustomize.id;
@@ -80,8 +79,6 @@ export const usePizzaStore = defineStore("pizzaStore", {
       };
       this.pizzasInCart.push(pizzaToCart);
       this.count++;
-      console.log("RESULTADOOOOOOOOOOOOOOO", this.pizzasInCart);
-      // console.log("objeto to cart", this.pizzasInCart);
     },
     // -- --------------------------------------------------------------------------- --
 
@@ -97,8 +94,6 @@ export const usePizzaStore = defineStore("pizzaStore", {
 
     pizzaAddQuantityInStore(pizza) {
       for (let i = 0; i < this.pizzasInCart.length; i++) {
-        console.log("pizzasInCart", this.pizzasInCart);
-        console.log("pizza", pizza);
         if (this.pizzasInCart[i]._id === pizza._id) {
           this.pizzasInCart[i].quantity++;
           this.count++;
@@ -156,9 +151,7 @@ export const usePizzaStore = defineStore("pizzaStore", {
     },
     getTotalPriceCart() {
       var totalPrice = 0.0;
-      // console.log("HELLO", this.pizzasInCart);
       for (let i = 0; i < this.pizzasInCart.length; i++) {
-        // console.log("HELLO 2", this.pizzasInCart[i]);
         totalPrice +=
           this.pizzasInCart[i].priceSelected * this.pizzasInCart[i].quantity;
       }

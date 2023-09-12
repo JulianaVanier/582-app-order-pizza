@@ -19,7 +19,6 @@ export const useIngredientStore = defineStore("ingredientStore", {
   },
   actions: {
     addIngredient(ingredient) {
-      console.log("INGREDIENTEEEE", ingredient);
       this.ingredients.push(ingredient);
     },
 
@@ -31,7 +30,6 @@ export const useIngredientStore = defineStore("ingredientStore", {
         }
       }
 
-      console.log("PARA VER AQUI", pizzaCustomWithIngredient);
       for (let i = 0; i < pizzaCustomWithIngredient.ingredient.length; i++) {
         if (pizzaCustomWithIngredient.ingredient[i]._id === ingredient._id) {
           pizzaCustomWithIngredient.ingredient =

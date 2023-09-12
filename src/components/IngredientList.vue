@@ -21,7 +21,6 @@ export default {
   },
   setup() {
     const ingredientStore = useIngredientStore();
-    console.log(ingredientStore.getIngredients);
     return { ingredientStore };
   },
   created() {

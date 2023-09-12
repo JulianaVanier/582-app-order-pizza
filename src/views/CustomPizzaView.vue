@@ -54,10 +54,7 @@ export default {
   computed: {
     //https://stackoverflow.com/questions/56303878/vue-js-cant-access-to-router-parameters-from-computed-property
     getPizzaCustomUsingParams: function () {
-      // console.log("ROUTER", this.$route.params.id);
       for (let i = 0; i < this.pizzaToCustomize.length; i++) {
-        // console.log("TEST 1 ", typeof this.pizzaToCustomize[i].id);
-        // console.log("TEST 2 ", typeof this.$route.params.id);
         if (this.pizzaToCustomize[i].id == this.$route.params.id) {
           return this.pizzaToCustomize[i];
         }

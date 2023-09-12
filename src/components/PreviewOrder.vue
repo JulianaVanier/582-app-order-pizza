@@ -30,7 +30,6 @@ export default {
 
   methods: {
     findOrderNumber() {
-      console.log("para VER ORDERRRRRRRRR", this.orderNumber);
 
       fetch(
         "https://bookish-rotary-phone-j6j6g76r445255vv-3000.app.github.dev/previeworder/" +
@@ -40,7 +39,6 @@ export default {
         .then((json) => {
           this.pizzaStore.clearCart();
 
-          console.log("JSONNNN", json);
           for (let pizza of json.pizza) {
             if (pizza.custom === true) {
               this.pizzaStore.addCustomToCart(pizza);
@@ -52,7 +50,6 @@ export default {
               );
             }
             this.$router.push("/cart/" + pizza.id);
-            console.log("order do FETCH", pizza);
           }
         });
     },

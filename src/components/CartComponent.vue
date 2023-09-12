@@ -51,7 +51,6 @@ export default {
   },
   methods: {
     placeOrder(pizzaInCart) {
-      console.log("PLACE ORDER", pizzaInCart);
 
       var orderToDb = {
         _id: null,
@@ -65,7 +64,6 @@ export default {
         totalprice: this.pizzaStore.getTotalPriceCart(),
       };
 
-      console.log("ORDER TO DB", orderToDb);
 
       fetch(
         "https://bookish-rotary-phone-j6j6g76r445255vv-3000.app.github.dev/placeorder",
@@ -78,11 +76,9 @@ export default {
         }
       )
         .then((response) => {
-          console.log(response);
           return response.text();
         })
         .then((data) => {
-          console.log(data);
           this.pizzaStore.clearCart();
           this.$router.push("/orderplaced/" + orderToDb.orderNumber);
         });

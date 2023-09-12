@@ -415,6 +415,32 @@ export default {
     }
   }
 }
+
+// Style for Pizza Custom
+
+.pizza-custom {
+  .box-menu-pizza {
+    p {
+      font-family: "Poppins", sans-serif;
+      margin: 0 25px;
+    }
+    .ingredient {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 250px;
+    }
+    .btn {
+      padding: 7px 30px;
+      margin: 15px 60px;
+      font-size: 12px;
+    }
+    img {
+      width: 250px;
+    }
+  }
+}
+
 // Style for ingredient
 .box-all-ingredients {
   width: 80%;
@@ -425,15 +451,13 @@ export default {
   margin: auto;
 }
 .list-ingredients {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 60px 0;
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    column-gap: 20px;
+  }
   .box-indredient {
-    width: 200px;
-    height: 200px;
     border: 1px solid #e9e8e8;
     margin: 10px;
     padding: 10px;
@@ -444,7 +468,7 @@ export default {
     border-radius: 8px;
     background-color: #f8fbfe;
     h3 {
-      font-size: 18px;
+      font-size: 14px;
       font-weight: bold;
     }
     img {
@@ -462,20 +486,18 @@ export default {
 .pizza-image {
   // margin: auto;
   position: relative;
-  // width: 300px;
+  width: 250px;
   // height: 340px;
   margin: auto;
   width: fit-content;
 }
 
-// Style for ingredients
 .ingredient {
   position: absolute;
   top: 0;
   left: 0;
-  // z-index: 50;
+  width: 250px;
 }
-
 .box-input {
   width: 100%;
   height: 100%;
@@ -692,6 +714,24 @@ export default {
       .box-menu-pizza {
         width: 230px;
         // height: 400px;
+      }
+    }
+    .menu-pizza {
+      .box-menu-pizza {
+        .close-pop-up {
+          width: 90%;
+          height: 30px;
+          border-radius: 50%;
+          background-color: #eeeded;
+          display: flex;
+          justify-content: end;
+          align-items: center;
+          cursor: pointer;
+          img {
+            width: 20px;
+            height: 20px;
+          }
+        }
       }
     }
 

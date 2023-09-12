@@ -12,11 +12,32 @@ Welcome to the Pizza Buying App! This is an application developed in Vue.js, Nod
 - Choose the size of the pizza
 - View the total price based on your choices
 
+## Technologies
+
+- Vue.js
+- Jest (for testing)
+- Node.js
+- MongoDB
+- Sass
+- Prettier
+- JavaScript
+- HTML
+- CSS
 ## Overall project structure
 
 ![Project Image](/docs//img/draw-project2.jpg)
 ## Screenshot
-coming soon
+Menu Pizza
+![Project Image](/docs//img/menu-pizza.png)
+Select Size
+![Project Image](/docs//img/select-size.png)
+Cart / Preview Order
+![Project Image](/docs//img/pizza-in-cart.png)
+Order placed
+![Project Image](/docs//img/order-placed.png)
+Mobile First
+
+![Project Image](/docs//img/mobile-first.png)
 #### Mobile First:
 coming soon
 
@@ -33,17 +54,6 @@ coming soon
 #### Topping:
 ![Project Image](/docs//img/json-order.png)
 
-## Technologies Used
-
-- Vue.js
-- Jest (for testing)
-- Node.js
-- MongoDB
-- Sass
-- Prettier
-- JavaScript
-- HTML
-- CSS
 ## Project setup
 
 ```bash

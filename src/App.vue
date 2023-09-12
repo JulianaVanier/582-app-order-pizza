@@ -104,8 +104,8 @@ export default {
   margin-bottom: 60px;
   // padding: 60px 0;
   .box-menu-pizza {
-    width: 300px;
-    height: 400px;
+    width: 170px;
+    // height: 400px;
     // border: 1px solid #ccc;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
       rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
@@ -117,12 +117,12 @@ export default {
     align-items: center;
     border-radius: 8px;
     h2 {
-      font-size: 20px;
+      font-size: 14px;
       font-weight: bold;
       font-family: "Poppins", sans-serif;
     }
     img {
-      width: 200px;
+      width: 120px;
       max-height: 100%;
       object-fit: cover;
       margin: 10px 0;
@@ -138,14 +138,12 @@ export default {
       font-weight: bold;
     }
     .description {
-      font-size: 14px;
+      font-size: 12px;
     }
   }
 }
 .btn {
-  // width: 100%;
-  // height: 40px;
-  padding: 10px 40px;
+  padding: 7px 18px;
   background-color: #ff2401;
   color: #fff;
   font-weight: bold;
@@ -155,6 +153,7 @@ export default {
   cursor: pointer;
   border-radius: 8px;
   margin: 15px 0;
+  font-size: 12px;
 }
 .select-size {
   background-color: #eeeded;
@@ -243,20 +242,6 @@ export default {
       letter-spacing: 1px;
     }
   }
-  // .btn {
-  //   width: 100%;
-  //   height: 100%;
-  //   padding: 10px 40px;
-  //   background-color: #ff2401;
-  //   color: #fff;
-  //   font-weight: bold;
-  //   display: flex;
-  //   justify-content: center;
-  //   align-items: center;
-  //   cursor: pointer;
-  //   border-radius: 8px;
-  //   margin-top: 15px;
-  // }
 }
 // Style for cart top
 .top {
@@ -323,8 +308,8 @@ export default {
   }
 
   .box-menu-pizza {
-    width: 300px;
-    height: 450px;
+    width: 170px;
+    // height: 450px;
     // border: 1px solid #ccc;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
       rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
@@ -336,11 +321,11 @@ export default {
     align-items: center;
     border-radius: 8px;
     h2 {
-      font-size: 20px;
+      font-size: 14px;
       font-weight: bold;
     }
     img {
-      width: 200px;
+      width: 120px;
       max-height: 100%;
       object-fit: cover;
       margin: 10px 0;
@@ -641,9 +626,6 @@ export default {
 
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) {
-  // .box-menu-pizza {
-  //   width: 300px;
-  // }
   // Large devices (desktops, 992px and up)
   .select-size {
     background-color: #eeeded;
@@ -688,15 +670,37 @@ export default {
     }
   }
   @media (min-width: 992px) {
-    // .menu-pizza {
-    //   .box-menu-pizza p {
-    //     font-size: 14px;
-    //     .price-size {
-    //       font-size: 120px;
-    //       font-weight: bold;
-    //     }
-    //   }
-    // }
+    .btn {
+      padding: 10px 40px;
+      font-size: 18px;
+    }
+    .menu-pizza {
+      .box-menu-pizza {
+        img {
+          width: 200px;
+        }
+        .description {
+          font-size: 14px;
+        }
+        h2 {
+          font-size: 18px;
+        }
+      }
+    }
+
+    .menu-pizza {
+      .box-menu-pizza {
+        width: 230px;
+        // height: 400px;
+      }
+    }
+
+    .review-order {
+      .box-menu-pizza {
+        width: 230px;
+        // height: 450px;
+      }
+    }
   }
 }
 </style>

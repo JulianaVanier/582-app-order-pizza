@@ -23,7 +23,7 @@ app.use(cors());
 app.use("/static", express.static("/public"));
 
 // https://expressjs.com/en/starter/faq.html
-app.use((req, res, next) => {
+app.use((req, res) => {
   res.status(404).sendFile(__dirname + "/public/404.html");
 });
 

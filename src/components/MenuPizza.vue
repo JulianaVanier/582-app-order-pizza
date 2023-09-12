@@ -48,13 +48,9 @@ export default {
     this.pizzaStore.pizzas = [];
     this.ingredientStore.ingredientsAdded = [];
 
-<<<<<<< HEAD
-    fetch("//juliana71.web582.com/web-framework/582-app-order-pizza/pizza")
-=======
     fetch(
       "https://bookish-rotary-phone-j6j6g76r445255vv-3000.app.github.dev/pizza"
     )
->>>>>>> bf96e734e39c899e04c5f49c8533e6c8d7d71dec
       .then((response) => response.json())
       .then((json) => {
         // console.log(json);

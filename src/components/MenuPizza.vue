@@ -53,11 +53,8 @@ export default {
     )
       .then((response) => response.json())
       .then((json) => {
-        // console.log(json);
-        // this.pizzaStore.setPizza(json);
         for (let pizza of json) {
           this.pizzaStore.addPizza(pizza);
-          // console.log(pizza);
         }
       });
   },
